@@ -1,0 +1,127 @@
+*{
+    color: #000000;
+    font-family: Helvetica, sans-serif;
+}
+    
+
+h1
+{
+    font-size: 35pt;
+    font-weight: bold;
+    letter-spacing: 4px;
+    top: 10px;
+
+}
+
+h2 {
+
+    font-size: 20pt;
+    letter-spacing: 3px;
+}
+
+h3
+{
+    font-size: 14pt;
+    font-weight: normal;
+}
+
+button{
+    background-color: rgb(245, 178, 113);
+    font-size: 14pt;
+    font-weight: normal;
+    border: 3px solid black;
+    display: block;
+    margin-top: 10px;
+}
+
+body {
+    
+}
+
+.left {
+    text-align: left;
+    display: inline; 
+}
+
+.right{
+    text-align: right;
+    display: inline; 
+}
+
+.container1 {
+    width:auto;
+    height:auto;
+    background-image:url("http://www.littleharvard.ie/wp-content/uploads/2015/11/dreamstime_m_12809494-family-cooking-together.gif");
+    background-size: cover;
+    padding-bottom: 200px;
+}
+
+.lorem {
+    font-family: Helvetica, sans-serif;
+    font-size: 12pt;
+    font-weight: normal;
+    display: block;
+    margin-bottom: 40px;
+    padding-top: 10px;
+    border-top: 2px solid black;
+    margin-top: 2px;
+}
+
+.my_dinner{
+    width: 200px;
+    height: auto;
+    padding: 30px 20px 30px;
+    background-color: #ffffff;
+    text-align: left;
+    border:2px solid black;
+}
+
+.grey{
+    background-color: #d3d3d3;
+    border:2px solid #000000;
+    width: 220px;
+    margin-left: -22px;
+    padding-left: 20px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.zero{
+    margin-left: 95px;
+}
+
+.cost{
+    margin-left: 75px;
+}
+
+#title1 {
+    
+    width: auto;
+    height: auto;
+    padding: 30px 20px 30px;
+    background-color: rgba( 245, 178, 113, 0.5);
+    border:3px solid #000000;
+    vertical-align: middle;
+}
+
+
+#title2 {
+    
+    width: auto;
+    height: auto;
+    padding: 30px 20px 30px;
+    background-color: #d3d3d3;
+    border:3px solid #000000;
+    vertical-align: middle;
+    position: relative;
+}
+
+#textbox {
+    width: 500px;
+    height: auto;
+    padding: 30px 20px 30px;
+    background-color: rgba( 255, 255, 255, 0.7);
+    text-align: left;
+    margin-top: 200px;
+    }
+
