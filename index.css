@@ -25,6 +25,16 @@ h3
     font-weight: normal;
 }
 
+h4 {
+    font-size: 10pt;
+    text-align: left;
+}
+
+h5 {
+    font-size: 10pt;
+    text-align: right;
+}
+
 button{
     background-color: rgb(245, 178, 113);
     font-size: 14pt;
@@ -32,19 +42,14 @@ button{
     border: 3px solid black;
     display: block;
     margin-top: 10px;
+    position: center;
 }
 
 body {
     
 }
 
-.left {
-    text-align: left;
-    display: inline; 
-}
-
-.right{
-    text-align: right;
+.beside{
     display: inline; 
 }
 
@@ -69,7 +74,7 @@ body {
 
 .my_dinner{
     width: 200px;
-    height: auto;
+    height: 1000px;
     padding: 30px 20px 30px;
     background-color: #ffffff;
     text-align: left;
@@ -94,8 +99,12 @@ body {
     margin-left: 75px;
 }
 
+.red {
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
 #title1 {
-    
     width: auto;
     height: auto;
     padding: 30px 20px 30px;
