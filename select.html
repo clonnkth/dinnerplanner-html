@@ -16,22 +16,33 @@
 			<h1 class="beside">HOMELETTE</h1> 
 			<h3 class="beside">From the best chefs in the world directly into your kitchen</h3>
 		</div>
-		<div class="my_dinner">
-			<h3>My Dinner</h3>
-			<h4>People</h4>
-			<div class="grey">
-				<h4 class="beside">Dish name</h4>
-				<h5 class="beside cost">Cost</h5><br/>
+		<div class="lower">
+			<div class="my_dinner">
+				<h3>My Dinner</h3>
+				<h4>People</h4>
+				<div class="grey">
+					<h4 class="beside">Dish name</h4>
+					<h5 class="beside cost">Cost</h5><br/>
+				</div>
+				<div class="red">
+					<h4 class="beside" style="color:red">Pending</h4>
+					<h5 class="beside zero" style="color:red">0.00</h5>
+				</div>
+				<div>
+					<h5 style="color:red">SEK 0.00</h5>
+					<button>Confirm Dinner</button>
+				</div>
 			</div>
-			<div class="red">
-				<h4 class="beside" style="color:red">Pending</h4>
-				<h5 class="beside zero" style="color:red">0.00</h5>
-			</div>
-			<h5 style="color:red">SEK 0.00</h5>
-			<button>Confirm Dinner</button>
-		</div>
-
-
+			<div class="select_dish">
+				<h3 class= "red">SELECT DISH</h3>
+	          	<input class="search" type="text" id="filter" placeholder="Enter key words"/>
+	          	<button class="search" id="search_button" on-click="getAllDishes(type, filter).innerHTML">Search</button>
+		      	<select class="search" id="type">
+		      		<option value="starter">Starter</option>
+		      		<option value="main dish" selected>Main</option>
+		      		<option value="dessert">Dessert</option>
+	      	</div>
+      	</div>
 	</div>
 
     <!-- jQuery -->
