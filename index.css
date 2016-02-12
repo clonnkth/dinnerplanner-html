@@ -84,7 +84,7 @@ tr:nth-child(3) {
  }
 
  td {
-    padding: 20px 0px 20px;
+    padding: 0px 20px 0px;
  }
 
 .line {
@@ -195,6 +195,7 @@ tr:nth-child(3) {
 
 #confirm_button {
     text-align:center;
+    padding-bottom: 30px;
 }
 
 #confirm_text {
