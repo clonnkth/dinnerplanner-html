@@ -18,29 +18,53 @@
 		</div>
 		<div class="lower">
 			<div class="my_dinner">
-				<h3>My Dinner</h3>
-				<h4>People</h4>
-				<div class="grey">
-					<h4 class="beside">Dish name</h4>
-					<h5 class="beside cost">Cost</h5><br/>
-				</div>
-				<div class="red">
-					<h4 class="beside" style="color:red">Pending</h4>
-					<h5 class="beside zero" style="color:red">0.00</h5>
-				</div>
-				<div>
-					<h5 style="color:red">SEK 0.00</h5>
-					<button>Confirm Dinner</button>
-				</div>
+				<table>
+					<tr>
+						<td><h3>My Dinner</h3></td>
+					</tr>
+					<tr>
+						<td><h4>People</h4></td>
+						<td class="right">
+							<span id="numberOfGuests"></span>
+					        <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+							<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+						</td>
+					</tr>
+					<tr>
+						<span><td><h4>Dish name</h4></td>
+						<td class="right"><h4>Cost</h4><br/></td></span>
+					</tr>
+					<tr class="line">
+						<div>
+							<td ><h4 style="color:red">Pending</h4></td>
+							<td class="right"><h4 style="color:red">0.00</h4></td>
+						</div>
+					</tr>
+					<tr>
+						<td/>
+						<td class="right"><h4 style="color:red">SEK 0.00</h4></td>
+					</tr>
+				</table>
+				<div id="confirm_button">
+					<button id="confirm_text">Confirm Dinner</button>
+				</div>	
 			</div>
 			<div class="select_dish">
-				<h3 class= "red">SELECT DISH</h3>
-	          	<input class="search" type="text" id="filter" placeholder="Enter key words"/>
-	          	<button class="search" id="search_button" on-click="getAllDishes(type, filter).innerHTML">Search</button>
-		      	<select class="search" id="type">
-		      		<option value="starter">Starter</option>
-		      		<option value="main dish" selected>Main</option>
-		      		<option value="dessert">Dessert</option>
+				<h3 class= "line">SELECT DISH</h3>
+				<table style="width:100%">
+					<tr>
+						<td>
+			          	<input class="search" type="text" id="filter" placeholder="Enter key words"/>
+			          	<button class="search" id="search_button" on-click="getAllDishes(type, filter).innerHTML">Search</button>
+				      	</td>
+				      	<td>
+				      	<select class="search" id="type">
+				      		<option value="starter">Starter</option>
+				      		<option value="main dish" selected>Main</option>
+				      		<option value="dessert">Dessert</option>
+				      	</td>
+			      	</tr>
+			    </table>
 	      	</div>
       	</div>
 	</div>
