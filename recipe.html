@@ -44,12 +44,12 @@
 							<div>
 								<td ><h4 style="color:red">Pending</h4></td>
 								<td/> 
-								<td class="right"><h4 style="color:red" id="totalDishPrice"></h4></td>
+								<td class="right"><h4 style="color:red" id="TotalDishPrice"></h4></td>
 							</div>
 						</tr>
 						<tr>
 							<td/> <td/>
-							<td class="right"><h4 style="color:red">SEK <span style="color:red" id="totalMenuPrice"> </span></h4></td>
+							<td class="right"><h4 style="color:red">SEK <span style="color:red" id="TotalMenuPrice"> </span></h4></td>
 							
 						</tr>
 					</table>
@@ -57,28 +57,7 @@
 						<button id="confirm_text">Confirm Dinner</button>
 					</div>	
 				</div>
-				<div class="rightCont">
-					<div class="select_dish">
-						<h3 class= "line">SELECT DISH</h3>
-						<table style="width:100%">
-							<tr>
-								<td>
-						        	<input class="search" type="text" id="filter" placeholder="Enter key words"/>
-						          	<button class="search" id="search_button" on-click="getAllDishes(type, filter).innerHTML">Search</button>
-							    </td>
-							    <td>
-							      	<select class="search" id="type">
-							      		<option value="starter">Starter</option>
-							      		<option value="main dish" selected>Main</option>
-							      		<option value="dessert">Dessert</option>
-							      	</select>
-							    </td>
-						      	</tr>
-						</table>
-				    </div>
-				      
-				    <div id="dishCont"> 
-				    </div>
+				
 				</div>
 			</div>
       	</div>

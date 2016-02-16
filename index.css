@@ -87,10 +87,7 @@ tr:nth-child(3) {
     padding: 0px 20px 0px;
  }
 
- img {
-    width: 100%;
-    height:200px;
- } 
+
 
 .line {
     border-bottom: 2px solid black;
@@ -106,9 +103,13 @@ tr:nth-child(3) {
     height:auto;
     background-image:url("http://www.littleharvard.ie/wp-content/uploads/2015/11/dreamstime_m_12809494-family-cooking-together.gif");
     background-size: cover;
-    padding-bottom: 200px;
+    flex:1;
 }
 
+.container2 {
+    display: flex;
+    flex-direction:column;
+}
 
 .lorem {
     font-family: Helvetica, sans-serif;
@@ -122,7 +123,7 @@ tr:nth-child(3) {
 }
 
 .my_dinner{
-    flex:0.2;
+    flex:0.25;
     flex-direction:column;
     background-color: #ffffff;
     border-width:0px 2px 2px 2px; 
@@ -158,6 +159,7 @@ tr:nth-child(3) {
 
 .lower {
     display:flex;
+    flex:1;
 }
 
 
@@ -175,7 +177,7 @@ tr:nth-child(3) {
     margin: 20px;
 }
 
-.turtle {
+.imgCont{
     border: 2px solid black;
 
 }
@@ -197,6 +199,23 @@ tr:nth-child(3) {
 
 .rightCont{
     flex:1;
+}
+
+.btnCont {
+display: block;
+width: 20px;
+}
+
+.btn {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+
+}
+.guests {
+    display: inline;
+    width: 40px;
+    height:30px;
 }
  
 #title1 {
@@ -225,6 +244,7 @@ tr:nth-child(3) {
     background-color: rgba( 255, 255, 255, 0.7);
     text-align: left;
     margin-top: 200px;
+    padding: 10px 10px 25px;
     }
 
 #confirm_button {
@@ -238,6 +258,20 @@ tr:nth-child(3) {
 }
 
 #dishCont {
-       display: flex;
-       overflow: scroll;
+    display: flex;
+    overflow: scroll;
 }
+
+ #img {
+    width: 100%;
+    height:200px;
+ } 
+
+
+#numberOfGuests {
+    border: 2px solid black;
+    padding: 5px;
+    text-align: center;
+
+}
+
