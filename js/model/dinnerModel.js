@@ -3,7 +3,7 @@ var DinnerModel = function() {
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
-	var nrGuests = 0;
+	var nrGuests = 2;
 	var menu = [];
 	
 
@@ -43,7 +43,7 @@ var DinnerModel = function() {
 	this.getAllIngredients = function() {
 		//TODO Lab 2
 		var allIngredients = []
-		fullMenu = this.getFullMenu();
+		var fullMenu = this.getFullMenu();
 		for(var i; i < fullMenu.length; i++) {
 			ingredients = fullMenu[i].ingredients
 			for(var j; j < ingredients.length; j++) {
@@ -55,13 +55,9 @@ var DinnerModel = function() {
 
 	this.getDishIngredients = function(id) {
 		//TODO Lab 2
-		var allIngredients = []
-		dish = this.getDish(id);
-		ingredients = dish.ingredients
-		for(var i; i < ingredients.length; i++) {
-			allIngredients.push(ingredients[i]);
-		}
-		return allIngredients;
+		var dish = this.getDish(id);
+		var ingredients = dish.ingredients;
+		return ingredients;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
@@ -230,7 +226,7 @@ var DinnerModel = function() {
 			}]
 		},{
 		'id':100,
-		'name':'Meat balls',
+		'name':'Meatballs',
 		'type':'main dish',
 		'image':'meatballs.jpg',
 		'description':"Preheat an oven to 400 degrees F (200 degrees C). Place the beef into a mixing bowl, and season with salt, onion, garlic salt, Italian seasoning, oregano, red pepper flakes, hot pepper sauce, and Worcestershire sauce; mix well. Add the milk, Parmesan cheese, and bread crumbs. Mix until evenly blended, then form into 1 1/2-inch meatballs, and place onto a baking sheet. Bake in the preheated oven until no longer pink in the center, 20 to 25 minutes.",

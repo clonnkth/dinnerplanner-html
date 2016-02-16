@@ -3,7 +3,8 @@ var ExampleView = function (container, model) {
 	
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
-	this.numberOfGuests = container.find("#numberOfGuests");
+	this.numberOfGuests = container.find(".numberOfGuests");
+	//this.numberOfGuests = container.find(".numberOfGuests2");
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
 	
@@ -13,13 +14,17 @@ var ExampleView = function (container, model) {
 
 	this.totalMenuPrice.html(model.getTotalMenuPrice());
 
-	this.totalDishPrice = container.find("#totalDishPrice");
+	this.totalDishPrice = container.find(".totalDishPrice");
 
 	this.totalDishPrice.html(model.getTotalDishPrice(100));
 
 	this.dish = container.find("#dishInfo");
 
 	this.dish.html(model.getDish(100));
+
+	this.preparation = container.find("#preparation");
+
+	this.preparation.html(model.getDish(100).description);
 
 	var loadDishes = function (type) {
 		var dishes = model.getAllDishes(type);
@@ -39,34 +44,37 @@ var ExampleView = function (container, model) {
 	var loadDish = function (id) {
 		var dish = model.getDish(id);
 		var dishStr = "";
-		for (var i = 0; i < dish.length; i++) {
-			var dish = dish[i];
-			dishStr = '<div class="dishCont2" data-id="'+dish.id+'">'; 
-			dishStr += '<div class="imgCont2"> <img id="img2" src="images/'+dish.image+'" alt="'+dish.name+'"></img>';
-			dishStr += '<h3 class="dishName2">'+dish.name+'</h3> </div>';
-			dishStr += '<div class="description2"><h5>'+dish.description+'</h5> </div> </div>';
+		dishStr = '<div class="dishCont2" data-id="'+dish.id+'">'; 
+		dishStr += '<h3 class="dishName2">'+dish.name+'</h3> </div>';
+		dishStr += '<div class="imgCont2"> <img id="img2" src="images/'+dish.image+'" alt="'+dish.name+'"></img>';
+		dishStr += '<div class="description2"><h5>'+dish.description+'</h5> </div> </div>';
 
-			$("#dishCont2").append(dishStr);
-		}
+		$("#dishCont2").append(dishStr);
 	}
+
 	loadDish(100);
 
 //Gör en tabell med allt som finns i ingredients. När tabellen görs ska price och amount multipliceras med antal gäster. Använd getNumberOfGuests.
-	var loadDish = function (id) {
-		var dish = model.getDishIngredients(id);
-		var dishStr = "";
-		for (var i = 0; i < dish.length; i++) {
-			var dish = dish[i];
-			dishStr = '<div class="ingrCont" data-id="'+dish.id+'">'; 
+	var loadIngr = function (id) {
+		var ingredients = model.getDishIngredients(id);
+		//console.log(ingredients);
+		var ingrStr = "";
+		var nrGuests =  model.getNumberOfGuests();
+		for (var i = 0; i < ingredients.length; i++) {
+			var ingredient = ingredients[i];
+			ingrStr = '<tr class="ingrRow">'; 
+			ingrStr += '<h5><td><span class="qspan">'+ingredient.quantity * nrGuests+'</span> <span class="uspan">'+ingredient.unit+'</span> </td>'; 
+			ingrStr += '<td><span class="nspan">'+ingredient.name+'</span></td>'; 
+			ingrStr += '<td><span class="pspan"> SEK '+ingredient.price * nrGuests+'</span></td></h5></tr>'; 
 		
+			//console.log(ingrStr);
 
-
-			$("#dishCont2").append(dishStr);
+			$("#ingrTable").append(ingrStr);
 		}
+	$("#ingrTable").append(	'<tr><td><button id="confirmDish">Confirm Dish</button></td><td/><td><h4>SEK '+model.getTotalDishPrice(id)+'</h4></td></tr>')
 	}
-	loadDish(100);
+	loadIngr(100);
 
-	
 
 }
 

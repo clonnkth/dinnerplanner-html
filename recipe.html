@@ -26,7 +26,7 @@
 						<tr>
 							<td><h4>People</h4></td>
 							<td>
-								<h4 id="numberOfGuests"></h4>
+								<h4 class="numberOfGuests"></h4>
 							</td>
 							<td class="right">
 									<div class="btnCont">
@@ -35,21 +35,21 @@
 								</div>
 							</td>
 						</tr>
-						<tr>
+						<tr id="thirdRow">
 							<span><td><h4>Dish name</h4></td>
 							<td/> 
 							<td class="right"><h4>Cost</h4><br/></td></span>
 						</tr>
 						<tr class="line">
 							<div>
-								<td ><h4 style="color:red">Pending</h4></td>
+								<td><h4 style="color:red">Pending</h4></td>
 								<td/> 
-								<td class="right"><h4 style="color:red" id="TotalDishPrice"></h4></td>
+								<td class="right"><h4 style="color:red" class="totalDishPrice"></h4></td>
 							</div>
 						</tr>
 						<tr>
 							<td/> <td/>
-							<td class="right"><h4 style="color:red">SEK <span style="color:red" id="TotalMenuPrice"> </span></h4></td>
+							<td class="right"><h4 style="color:red">SEK <span style="color:red" id="totalMenuPrice"> </span></h4></td>
 							
 						</tr>
 					</table>
@@ -57,8 +57,21 @@
 						<button id="confirm_text">Confirm Dinner</button>
 					</div>	
 				</div>
+				<div class="rightCont2">
+					<div class="recipe">
+						<div id = "dishCont2"></div>
+						<button id="back">back to Select Dish</button>
+						<h2>Preparation</h2>
+						<div id="preparation"> </div>
+					</div>
+				<div class="ingrCont"> 
 				
+					<h3>INGREDIENTS FOR <span class="numberOfGuests"/> </span> PEOPLE</h3>
+					<table id="ingrTable">
+					</table>
+
 				</div>
+				
 			</div>
       	</div>
 	</div>
