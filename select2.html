@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homelette</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+
+  </head>
+  <body>
+	<div class="container2">
+		<div id="exampleView">
+			<div id="title2">
+				<h1 class="beside">HOMELETTE</h1> 
+				<h3 class="beside">From the best chefs in the world directly into your kitchen</h3>
+			</div>
+			<div class="lower">
+				<div class="my_dinner">
+					<table>
+						<tr>
+							<td><h3>My Dinner</h3></td>
+						</tr>
+						<tr>
+							<td><h4>People</h4></td>
+							<td>
+								<h4 class="numberOfGuests"></h4>
+							</td>
+							<td class="right">
+									<div class="btnCont">
+										<button id="plusGuest" class="btn">+</button>
+				          				<button id="minusGuest" class="btn">-</button>
+								</div>
+							</td>
+						</tr>
+						<tr id="thirdRow">
+							<span><td><h4>Dish name</h4></td>
+							<td/> 
+							<td class="right"><h4>Cost</h4><br/></td></span>
+						</tr>
+						<tr>
+						<td><h4 style="color:red" class="numberOfGuests"></h4></td>
+						<td><h4 style="color:red" class="dishName"></h4></td>
+						<td><h4 style="color:red" class="totalDishPrice"></h4></td>
+						<tr class="line">
+							<div>
+								<td ><h4 style="color:red">Pending</h4></td>
+								<td/> 
+								<td class="right"><h4 style="color:red">0.00</h4></td>
+							</div>
+						</tr>
+						<tr>
+							<td/> <td/>
+							<td class="right"><h4 style="color:red">SEK <span style="color:red" id="totalMenuPrice"> </span></h4></td>
+							
+						</tr>
+					</table>
+					<div id="confirm_button">
+						<button id="confirm_text">Confirm Dinner</button>
+					</div>	
+				</div>
+				<div class="rightCont">
+					<div class="select_dish">
+						<h3 class= "line">SELECT DISH</h3>
+						<table style="width:100%">
+							<tr>
+								<td>
+						        	<input class="search" type="text" id="filter" placeholder="Enter key words"/>
+						          	<button class="search" id="search_button" on-click="getAllDishes(type, filter).innerHTML">Search</button>
+							    </td>
+							    <td>
+							      	<select class="search" id="type">
+							      		<option value="starter">Starter</option>
+							      		<option value="main dish" selected>Main</option>
+							      		<option value="dessert">Dessert</option>
+							      	</select>
+							    </td>
+						      	</tr>
+						</table>
+				    </div>
+				      
+				    <div id="dishCont"> 
+				    </div>
+				</div>
+			</div>
+      	</div>
+	</div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/exampleViewController.js"></script>
+  </body>
+</html>
