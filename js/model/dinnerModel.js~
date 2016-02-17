@@ -69,7 +69,7 @@ var DinnerModel = function() {
 			//for (menu[i].ingredients)
 			totalMenuPrice +=  (allIngredients[i].price * nrGuests);
 		}
-		return (totalMenuPrice);
+		console.log (totalMenuPrice);
 	}
 
 	this.getTotalDishPrice = function(id) {
