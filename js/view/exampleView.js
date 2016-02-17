@@ -22,6 +22,10 @@ var ExampleView = function (container, model) {
 
 	this.dish.html(model.getDish(100));
 
+	this.dishName = container.find(".dishName");
+
+	this.dishName.html(model.getDish(100).name);
+
 	this.preparation = container.find("#preparation");
 
 	this.preparation.html(model.getDish(100).description);
