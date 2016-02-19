@@ -43,7 +43,7 @@ var ExampleView = function (container, model) {
 			$("#dishCont").append(dishStr);
 		}
 	}
-	loadDishes('main dish');
+	loadDishes('starter');
 
 	var loadDish = function (id) {
 		var dish = model.getDish(id);

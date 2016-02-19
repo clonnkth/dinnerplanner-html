@@ -5,11 +5,23 @@ var DinnerModel = function() {
 	// and selected dinner options for dinner menu
 	var nrGuests = 2;
 	var menu = [3, 100, 200];
-	
+	var observers = [];
+
+	var notifyObservers = function(obj) {
+		for (var i = 0; i = observers.length; i++) {
+			obervers[i].update(obj);
+		}
+	}
+
+	this.addObserver = function(observer) {
+		observers.push(observer);
+	}
+
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
 		nrGuests = num;
+		this.notifyObservers()
 	}
 
 	// should return 
@@ -50,7 +62,7 @@ var DinnerModel = function() {
 				allIngredients.push(ingredients[j]);
 			}
 		}
-		return (allIngredients);
+		return allIngredients;
 	}
 
 	this.getDishIngredients = function(id) {
@@ -69,7 +81,7 @@ var DinnerModel = function() {
 			//for (menu[i].ingredients)
 			totalMenuPrice +=  (allIngredients[i].price * nrGuests);
 		}
-		return (totalMenuPrice);
+		return totalMenuPrice;
 	}
 
 	this.getTotalDishPrice = function(id) {
@@ -96,6 +108,7 @@ var DinnerModel = function() {
 		} 
 
 		menu.push(id);
+		this.notifyObservers()
 
 	}
 
@@ -106,6 +119,7 @@ var DinnerModel = function() {
 		if(index > -1) {
 			menu.splice(index, 1);
 		}
+		this.notifyObservers()
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

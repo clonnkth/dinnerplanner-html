@@ -1,0 +1,1 @@
+var  MyDinnerView = function (container, model) {}
