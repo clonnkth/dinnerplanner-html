@@ -46,5 +46,5 @@ var DetailsView = function (container, model) {
 	}
 	loadIngr(100);
 
-
+	model.addObserver(this)
 }

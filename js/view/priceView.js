@@ -12,4 +12,5 @@ var PriceView = function (container, model) {
 
 	this.totalMenuPrice.html(model.getTotalMenuPrice());
 
+	model.addObserver(this)
 }

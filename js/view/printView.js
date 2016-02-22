@@ -16,8 +16,9 @@ var PrintView = function (container, model) {
 
 
 				$("#printMenu").append(dishStr);
-			}
 		}
-		printMenu()
-
 	}
+	printMenu()
+
+	model.addObserver(this)
+}

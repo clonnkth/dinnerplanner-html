@@ -17,4 +17,5 @@ var loadMenu = function () {
 	}
 	loadMenu();
 
+	model.addObserver(this)
 }

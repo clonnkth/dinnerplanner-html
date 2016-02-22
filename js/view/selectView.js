@@ -15,4 +15,5 @@ var SelectView = function (container, model) {
 	}
 	loadDishes('starter');
 
+	model.addObserver(this)
 }
