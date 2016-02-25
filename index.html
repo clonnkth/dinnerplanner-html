@@ -11,7 +11,7 @@
 
   </head>
   <body>
-	<div id="startView">
+	<div class="startView">
 		<div id="title1">
 			<h1 class="beside">HOMELETTE</h1> 
 			<h3 class="beside italic">From the best chefs in the world directly into your kitchen</h3> 
@@ -69,27 +69,27 @@
 						<button id="confirm_text">Confirm Dinner</button>
 					</div>	
 				</div>
-				<div class="rightCont">
+				<div id="selectView">
 					<div class="select_dish">
 						<h3 class= "line">SELECT DISH</h3>
 						<table style="width:100%">
 							<tr>
 								<td>
-						        	<input class="search" type="text" id="filter" placeholder="Enter key words"/>
-						          	<button class="search" id="search_button" on-click="getAllDishes(type, filter).innerHTML">Search</button>
-							    </td>
-							    <td>
-							      	<select class="search" id="type">
-							      		<option value="starter">Starter</option>
-							      		<option value="main dish" selected>Main</option>
-							      		<option value="dessert">Dessert</option>
-							      	</select>
-							    </td>
-						      	</tr>
+							        <input class="search" type="text" id="filter" placeholder="Enter key words" value=""/>
+							        <button class="search" id="searchButton">Search</button>
+								</td>
+								<td>
+								    <select class="search" id="type">
+								      	<option value="starter">Starter</option>
+								      	<option value="main dish">Main</option>
+								      	<option value="dessert">Dessert</option>
+								    </select>
+								</td>
+						      </tr>
 						</table>
-				    </div>
-				      
+				    </div> 
 				    <div id="dishCont"> 
+
 				    </div>
 				</div>
 			</div>

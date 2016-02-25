@@ -3,10 +3,10 @@ $(function() {
 	var model = new DinnerModel();
 	
 	//And create the needed controllers and views
-	var exampleView = new ExampleView($("#exampleView"), model);
+	//var exampleView = new ExampleView($("#exampleView"), model);
 	//var exampleViewController = new ExampleViewController(exampleView, model);
 
-	var startView = new StartView($("#startView"), model);
+	var startView = new StartView($(".startView"), model);
 	var startViewController = new StartViewController(startView, model);
 
 	var priceView = new PriceView($("#priceView"), model);

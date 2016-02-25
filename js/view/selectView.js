@@ -1,7 +1,12 @@
 var SelectView = function (container, model) {
+	model.addObserver(this);
+	this.searchButton = container.find("#searchButton");
+	this.filter = "";
+	this.types = "";
+	this.type = $("#type").val();
 
-	var loadDishes = function (type) {
-		var dishes = model.getAllDishes(type);
+	this.loadDishes = function (type, filter) {
+		var dishes = model.getAllDishes(type, filter);
 		var dishStr = "";
 		for (var i = 0; i < dishes.length; i++) {
 			var dish = dishes[i];
@@ -13,7 +18,9 @@ var SelectView = function (container, model) {
 			$("#dishCont").append(dishStr);
 		}
 	}
-	loadDishes('starter');
 
-	model.addObserver(this)
+	this.update = function(object) {
+		this.loadDishes();
+	}
+
 }

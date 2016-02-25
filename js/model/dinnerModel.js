@@ -7,9 +7,10 @@ var DinnerModel = function() {
 	var menu = [3, 100, 200];
 	var observers = [];
 
-	var notifyObservers = function(obj) {
-		for (var i = 0; i = observers.length; i++) {
-			obervers[i].update(obj);
+	this.notifyObservers = function(obj) {
+		for (var i = 0; i < observers.length; i++) {
+			console.log(observers[i])
+			observers[i].update(obj);
 		}
 	}
 
