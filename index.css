@@ -157,7 +157,7 @@ td {
     border-bottom: 2px solid black;
 }
 
-.dinner {
+.myDinnerView {
     background-color: rgba( 255, 226, 130, 0.7);
     display: block;
     height: 30px;
@@ -165,12 +165,18 @@ td {
     border-bottom: 2px solid black;
 }
 
+.dinner {
+    display:none;
+}
+
 .lower {
     display:flex;
     flex:1;
 }
-
-
+.lower2 {
+    display:flex;
+    flex:1;
+}
 .search {
     height: 35px;
 }
@@ -347,14 +353,17 @@ display:block;
     padding: 10px 10px 25px;
 }
 
-#confirm_button {
+#confirm_align {
     text-align:center;
     padding-bottom: 30px;
 }
 
-#confirm_text {
+#confirmButton {
     color: #d3d3d3;
     border-color: #d3d3d3;
+}
+
+#confirmedView {
 }
 
 #dishCont {

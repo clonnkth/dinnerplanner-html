@@ -13,10 +13,12 @@ $(function() {
 	var priceViewController = new PriceViewController(priceView, model);
 
 	var selectView = new SelectView($("#selectView"), model);
-	var selectViewController = new SelectViewController(selectView, model);
+	
 
 	var detailsView = new DetailsView($("#detailsView"), model);
+	var selectViewController = new SelectViewController(selectView, detailsView, model);
 	var detailsViewController = new DetailsViewController(detailsView, model);
+
 
 	var confirmedView = new ConfirmedView($("#confirmedView"), model);
 	var confirmedViewController = new ConfirmedViewController(confirmedView, model);

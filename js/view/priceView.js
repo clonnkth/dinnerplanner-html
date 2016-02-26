@@ -1,12 +1,13 @@
 var PriceView = function (container, model) {
 
-
+	model.addObserver(this);
 	this.numberOfGuests = container.find(".numberOfGuests");
 	//this.numberOfGuests = container.find(".numberOfGuests2");
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
 	this.totalMenuPrice = container.find("#totalMenuPrice");
-	model.addObserver(this);
+	this.confirmButton = container.find("#confirmButton");
+	
 
 	this.load = function() {
 		this.numberOfGuests.html(model.getNumberOfGuests());

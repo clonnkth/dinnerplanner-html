@@ -1,18 +1,31 @@
 var DetailsView = function (container, model) {
+	model.addObserver(this)
 
-
- this.dish = container.find("#dishInfo");
-
-	this.dish.html(model.getDish(100));
-
-	this.dishName = container.find(".dishName");
-
-	this.dishName.html(model.getDish(100).name);
-
+ 	this.dish = container.find("#dishInfo");
+	this.dishName = container.find(".dishName");	
 	this.preparation = container.find("#preparation");
+	this.backButton = container.find("#backButton");
 
-	this.preparation.html(model.getDish(100).description);
+	this.currentId = "";
+
+	this.changeCurrent = function(id) {
+
+		this.currentId = id;
+		this.load(id);
+		return this.currentId;
+	}
+
+	this.load = function(id) {
+		this.dish.html(model.getDish(id));
+		this.dishName.html(model.getDish(id).name);
+		this.preparation.html((model.getDish(id)).description);
+		loadDish(id);
+ 		loadIngr(id);
+	};
+
+
 	var loadDish = function (id) {
+		$("#dishCont2").empty();
 		var dish = model.getDish(id);
 		var dishStr = "";
 		dishStr = '<div class="dishCont2" data-id="'+dish.id+'">'; 
@@ -21,12 +34,12 @@ var DetailsView = function (container, model) {
 		dishStr += '<div class="description2"><h5>'+dish.description+'</h5> </div> </div>';
 
 		$("#dishCont2").append(dishStr);
-	}
+	};
 
-	loadDish(100);
-
+	
 //Gör en tabell med allt som finns i ingredients. När tabellen görs ska price och amount multipliceras med antal gäster. Använd getNumberOfGuests.
 	var loadIngr = function (id) {
+		$("#ingrTable").empty();
 		var ingredients = model.getDishIngredients(id);
 		//console.log(ingredients);
 		var ingrStr = "";
@@ -44,7 +57,10 @@ var DetailsView = function (container, model) {
 		}
 	$("#ingrTable").append(	'<tr><td><button id="confirmDish">Confirm Dish</button></td><td/><td><h4>SEK '+model.getTotalDishPrice(id)+'</h4></td></tr>')
 	}
-	loadIngr(100);
+	
 
-	model.addObserver(this)
+	this.update = function(object) {
+		this.load(this.currentId);
+	}
+
 }

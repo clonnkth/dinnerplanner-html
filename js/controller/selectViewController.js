@@ -1,4 +1,4 @@
-var SelectViewController = function(view, model ) {
+var SelectViewController = function(view, view2, model ) {
  	/*
  	view.type.change(function(){
  		view.loadDishes(this.value);
@@ -12,6 +12,9 @@ var SelectViewController = function(view, model ) {
  	view.imgCont.click(function() {
  		$("#selectView").hide();
  		$("#detailsView").show();
+ 		view2.changeCurrent(this.id)
+ 		console.log(this.id)
+
  	});
 }
 
