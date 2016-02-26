@@ -75,24 +75,37 @@
 						<table style="width:100%">
 							<tr>
 								<td>
-							        <input class="search" type="text" id="filter" placeholder="Enter key words" value=""/>
-							        <button class="search" id="searchButton">Search</button>
+							        <input class="search" type="text" id="filter" placeholder="Enter key words"></input>
+							        
 								</td>
 								<td>
 								    <select class="search" id="type">
 								      	<option value="starter">Starter</option>
-								      	<option value="main dish">Main</option>
+								      	<option value="main dish" selected>Main</option>
 								      	<option value="dessert">Dessert</option>
 								    </select>
+								    <button class="search" id="searchButton">Search</button>
 								</td>
 						      </tr>
 						</table>
 				    </div> 
-				    <div id="dishCont"> 
-
-				    </div>
+				    <div id="dishCont"> </div>
+				 </div>
+			
+				<div id="detailsView">
+					<div class="recipe">
+						<div id = "dishCont2"></div>
+						<button id="back">back to Select Dish</button>
+						<h2>Preparation</h2>
+						<div id="preparation"> </div>
+					</div>
+					<div class="ingrCont"> 
+					
+						<h3>INGREDIENTS FOR <span class="numberOfGuests"/> </span> PEOPLE</h3>
+						<table id="ingrTable"></table>
+					</div>
 				</div>
-			</div>
+			
       	</div>
 
     <!-- jQuery -->
@@ -103,21 +116,19 @@
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
-	<script src="js/view/exampleViewController.js"></script>
 	<script src="js/view/startView.js"></script>
-	<script src="js/view/startViewController.js"></script>
+	<script src="js/controller/startViewController.js"></script>
 	<script src="js/view/priceView.js"></script>
-	<script src="js/view/priceViewController.js"></script>
+	<script src="js/controller/priceViewController.js"></script>
 	<script src="js/view/selectView.js"></script>
-	<script src="js/view/selectViewController.js"></script>
+	<script src="js/controller/selectViewController.js"></script>
 	<script src="js/view/detailsView.js"></script>
-	<script src="js/view/detailsViewController.js"></script>
+	<script src="js/controller/detailsViewController.js"></script>
 	<script src="js/view/confirmedView.js"></script>
-	<script src="js/view/confirmedViewController.js"></script>
+	<script src="js/controller/confirmedViewController.js"></script>
 	<script src="js/view/printView.js"></script>
-	<script src="js/view/printViewController.js"></script>
+	<script src="js/controller/printViewController.js"></script>
 	<script src="js/view/myDinnerView.js"></script>
-	<script src="js/view/myDinnerViewController.js"></script>
+	<script src="js/controller/myDinnerViewController.js"></script>
   </body>
 </html>

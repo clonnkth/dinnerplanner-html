@@ -20,5 +20,5 @@ var PriceView = function (container, model) {
 	}
 
 	this.load();
-	console.log(this)
+	
 }

@@ -182,7 +182,7 @@ td {
 
 .dishCont {
     height:300px;
-	width: 250px;
+	max-width: 250px;
     margin: 20px;
 	display:block;
 	flex:1;
@@ -235,7 +235,7 @@ td {
 
 }
 
-.rightCont2 {
+#detailsView {
     display:flex;
     flex:1;
 }
@@ -417,6 +417,11 @@ display:block;
 	margin:40px;
 	padding: 5px 50px 5px;
 }
+
+#detailsView {
+    display: none;
+}
+
     
 
 
