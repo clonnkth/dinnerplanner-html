@@ -10,7 +10,7 @@ var PriceViewController = function(view, model ) {
 
  	view.confirmButton.click(function(){
  		$("#priceView").hide();
- 		$(".dinner").show();
+ 		$("#myDinnerView").show();
  	})
 }
 

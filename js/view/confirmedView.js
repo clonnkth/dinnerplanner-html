@@ -1,6 +1,7 @@
 var ConfirmedView = function (container, model) {
+	this.printButton = container.find("#printButton");
 
-var loadMenu = function () {
+	var loadMenu = function () {
 		var dishes = model.getFullMenu();
 		var dishStr = "";
 		for (var i = 0; i < dishes.length; i++) {

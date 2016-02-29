@@ -1,7 +1,9 @@
 var  MyDinnerView = function (container, model) {
 	model.addObserver(this);
-	this.numberOfGuests = container.find(".numberOfGuests");
+	console.log("hello");
+	this.numberDinnerOfGuests = container.find("#numberOfGuests");
 	console.log(this.numberOfGuests);
+	this.backButton2 = container.find("#backButton2");
 	//this.numberOfGuests = container.find(".numberOfGuests2");
 	
 	this.load = function() {

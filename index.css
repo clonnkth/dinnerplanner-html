@@ -157,7 +157,7 @@ td {
     border-bottom: 2px solid black;
 }
 
-.myDinnerView {
+#dinner {
     background-color: rgba( 255, 226, 130, 0.7);
     display: block;
     height: 30px;
@@ -165,7 +165,7 @@ td {
     border-bottom: 2px solid black;
 }
 
-.dinner {
+#myDinnerView {
     display:none;
 }
 
@@ -416,7 +416,7 @@ display:block;
 	margin-bottom: 50px;
 }
 
-#back2 {
+#backButton2 {
 	float:right;
 	display:inline;
  	
@@ -431,6 +431,9 @@ display:block;
     display: none;
 }
 
+#printView {
+    display: none;
+}
     
 
 
