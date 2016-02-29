@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Homelette</title>
+  	<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<title>Homelette</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="index.css"/>
+    	<!-- CSS -->
+   		<link rel="stylesheet" type="text/css" href="index.css"/>
 
-  </head>
-  <body>
-	<div class="startView">
-		<div id="title1">
-			<h1 class="beside">HOMELETTE</h1> 
-			<h3 class="beside italic">From the best chefs in the world directly into your kitchen</h3> 
+  	</head>
+  	<body>
+		<div class="startView">
+			<div id="title1">
+				<h1 class="beside">HOMELETTE</h1> 
+				<h3 class="beside italic">From the best chefs in the world directly into your kitchen</h3> 
+			</div>
+			<div id="textbox">
+				<h2>A Home Dinner Service</h2>
+				<p class="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+				<h3>Start quickly</h3>
+				<button id="startButton">Create new dinner</button>
+			</div>	
 		</div>
-		<div id="textbox">
-			<h2>A Home Dinner Service</h2>
-			<p class="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
-			<h3>Start quickly</h3>
-			<button id="startButton">Create new dinner</button>
-		</div>	
-	</div>
 
 		<div id="priceView">
 			<div id="title2">
@@ -41,9 +41,9 @@
 								<h4 class="numberOfGuests"></h4>
 							</td>
 							<td class="right">
-									<div class="btnCont">
-										<button id="plusGuest" class="btn">+</button>
-				          				<button id="minusGuest" class="btn">-</button>
+								<div class="btnCont">
+									<button id="plusGuest" class="btn">+</button>
+				          			<button id="minusGuest" class="btn">-</button>
 								</div>
 							</td>
 						</tr>
@@ -107,31 +107,31 @@
 					</div>
       			</div>
       		</div>
-      		<div id="myDinnerView">
-      			<div id="title2">
-					<h1 class="beside">HOMELETTE</h1> 
-					<h3 class="beside italic">From the best chefs in the world directly into your kitchen</h3>
+      	</div>
+  		<div id="myDinnerView">
+  			<div id="title2">
+				<h1 class="beside">HOMELETTE</h1> 
+				<h3 class="beside italic">From the best chefs in the world directly into your kitchen</h3>
+			</div>
+			<div id="dinner">
+					<h2 class="bold">My Dinner: <span class="numberOfDinnerGuests"/> </span> people</h2>
+					<button id="backButton2">Go back and edit dinner</button>
+			</div>
+      		<div id="confirmedView">
+				<div id="menu">     
+					<div id="fullMenu"> </div>
 				</div>
-				<div id="dinner">
-						<h2 class="bold">My Dinner: <span class="numberDinnerOfGuests"/> </span> people</h2>
-						<button id="backButton2">Go back and edit dinner</button>
+				<div class="printbtn">
+					<button id="printButton">Print Full Recipe</button>
 				</div>
-	      			<div id="confirmedView">
-						<div id="menu">     
-							<div id="fullMenu"> </div>
-						</div>
-						<div class="printbtn">
-							<button id="printButton">Print Full Recipe</button>
-						</div>
-					</div>
-				    <div id="printView">
-						<div id="menu">     
-							<div id="printMenu"> </div>
-						</div>
-		      		</div>
-	      		</div>
+			</div>
+			<div id="printView">
+				<div id="menu">     
+					<div id="printMenu"> </div>
+				</div>
 	      	</div>
-		</div>
+      	</div>
+	</div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
