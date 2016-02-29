@@ -4,7 +4,7 @@ var DinnerModel = function() {
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 	var nrGuests = 2;
-	var menu = [3, 100, 200];
+	var menu = [1, 100, 200];
 	var observers = [];
 
 	this.notifyObservers = function(obj) {
@@ -19,6 +19,7 @@ var DinnerModel = function() {
 
 
 	this.setNumberOfGuests = function(num) {
+		console.log(observers);
 		//TODO Lab 2
 		nrGuests = num;
 		this.notifyObservers();
@@ -27,7 +28,7 @@ var DinnerModel = function() {
 	// should return 
 	this.getNumberOfGuests = function() {
 		return nrGuests;
-		//TODO Lab 2
+		
 	}
 
 	//Returns the dish that is on the menu for selected type 

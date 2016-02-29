@@ -6,7 +6,7 @@ var DetailsView = function (container, model) {
 	this.preparation = container.find("#preparation");
 	this.backButton = container.find("#backButton");
 
-	this.currentId = "";
+	this.currentId = 1;
 
 	this.changeCurrent = function(id) {
 

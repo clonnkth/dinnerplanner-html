@@ -1,11 +1,12 @@
 var  MyDinnerView = function (container, model) {
 	model.addObserver(this);
-	this.numberOfDinnerGuests = container.find("#numberOfDinnerGuests");
+	this.numberOfGuests = container.find("#nrOfGuests");
 	this.backButton2 = container.find("#backButton2");
 	//this.numberOfGuests = container.find(".numberOfGuests2");
 	
 	this.load = function() {
-		this.numberOfDinnerGuests.html(model.getNumberOfGuests());
+		this.numberOfGuests.html(model.getNumberOfGuests());
+		console.log(this.numberOfGuests);
 	}
 
 	this.update = function(object) {

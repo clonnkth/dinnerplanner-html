@@ -1,7 +1,8 @@
 var ConfirmedView = function (container, model) {
 	this.printButton = container.find("#printButton");
-
-	var loadMenu = function () {
+	model.addObserver(this);
+	
+	this.loadMenu = function () {
 		var dishes = model.getFullMenu();
 		var dishStr = "";
 		for (var i = 0; i < dishes.length; i++) {
@@ -15,8 +16,11 @@ var ConfirmedView = function (container, model) {
 			$("#fullMenu").append(dishStr);
 		}
 		$("#fullMenu").append('<h3 id="totalMenuPrice2">Total: <span></span> '+model.getTotalMenuPrice()+' SEK</h3>');
-	}
-	loadMenu();
-
-	model.addObserver(this)
+	};
+	
+	this.update = function(object) {
+		this.loadMenu();
+	};
+this.loadMenu()
+	
 }

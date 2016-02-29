@@ -1,9 +1,9 @@
 var PrintView = function (container, model) {
-
+model.addObserver(this)
 	this.numberOfGuests = container.find(".numberOfGuests");
 	this.numberOfGuests.html(model.getNumberOfGuests());
 
-	var printMenu = function () {
+	this.printMenu = function () {
 			var dishes = model.getFullMenu();
 			var dishStr = "";
 			for (var i = 0; i < dishes.length; i++) {
@@ -18,7 +18,10 @@ var PrintView = function (container, model) {
 				$("#printMenu").append(dishStr);
 		}
 	}
-	printMenu()
+	
+	this.update = function(object) {
+		this.printMenu();
+	}
 
-	model.addObserver(this)
+	this.printMenu()
 }
