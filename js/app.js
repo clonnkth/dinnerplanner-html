@@ -16,8 +16,8 @@ $(function() {
 	
 
 	var detailsView = new DetailsView($("#detailsView"), model);
-	var selectViewController = new SelectViewController(selectView, detailsView, model);
-	var detailsViewController = new DetailsViewController(detailsView, model);
+	var selectViewController = new SelectViewController(selectView, detailsView, priceView, model);
+	var detailsViewController = new DetailsViewController(detailsView, priceView, model);
 
 
 	var confirmedView = new ConfirmedView($("#confirmedView"), model);

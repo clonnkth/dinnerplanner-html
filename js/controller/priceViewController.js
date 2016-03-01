@@ -13,5 +13,9 @@ var PriceViewController = function(view, model ) {
  		$("#priceView").hide();
  		$("#myDinnerView").show();
  	})
+ 	$(".remove").click(function(){
+ 		model.removeDishFromMenu($(this).data("id"))
+ 		
+ 	})
 }
 

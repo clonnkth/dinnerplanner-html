@@ -5,6 +5,8 @@ var DetailsView = function (container, model) {
 	this.dishName = container.find(".dishName");	
 	this.preparation = container.find("#preparation");
 	this.backButton = container.find("#backButton");
+	this.confirmButton = container.find("#confirmDish");
+	this.totalDishPrice = container.find("#totalPrice");
 
 	this.currentId = 1;
 
@@ -19,6 +21,7 @@ var DetailsView = function (container, model) {
 		this.dish.html(model.getDish(id));
 		this.dishName.html(model.getDish(id).name);
 		this.preparation.html((model.getDish(id)).description);
+		this.totalDishPrice.html(model.getTotalDishPrice(id));
 		loadDish(id);
  		loadIngr(id);
 	};
@@ -55,7 +58,6 @@ var DetailsView = function (container, model) {
 
 			$("#ingrTable").append(ingrStr);
 		}
-	$("#ingrTable").append(	'<tr><td><button id="confirmDish">Confirm Dish</button></td><td/><td><h4>SEK '+model.getTotalDishPrice(id)+'</h4></td></tr>')
 	}
 	
 

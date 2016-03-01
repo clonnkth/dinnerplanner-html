@@ -19,7 +19,6 @@ var DinnerModel = function() {
 
 
 	this.setNumberOfGuests = function(num) {
-		console.log(observers);
 		//TODO Lab 2
 		nrGuests = num;
 		this.notifyObservers();

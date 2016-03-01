@@ -31,8 +31,8 @@
 			</div>
 			<div class="lower">
 				<div class="my_dinner">
-				<div id=priceMenu>
-				<!--	<table>
+				
+					<table>
 						<tr>
 							<td><h3>My Dinner</h3></td>
 						</tr>
@@ -49,28 +49,18 @@
 							</td>
 						</tr>
 						<tr id="thirdRow">
-							<span><td><h4>Dish name</h4></td>
+							<td><h4>Dish name</h4></td>
 							<td/> 
-							<td class="right"><h4>Cost</h4><br/></td></span>
-						</tr>
-						<tr class="line">
-						<span id=priceMenu></span>
-							<div>
-								<td ><h4 style="color:red">Pending</h4></td>
-								<td/> 
-								<td class="right"><h4 style="color:red">0.00</h4></td>
-							</div>
+							<td><h4>Cost</h4><br/></td>
 						</tr>
 						<tr>
-							<td/> <td/>
-							<td class="right"><h4 style="color:red">SEK <span style="color:red" id="totalMenuPrice"> </span></h4></td>
-							
+						<table><span id="priceMenu"></span></table>
 						</tr>
 					</table> 
 					<div id="confirm_align">
 						<button id="confirmButton">Confirm Dinner</button>
-					</div>	<-->
-				</div>
+					</div>
+				
 				</div>
 				<div id="selectView">
 					<div class="select_dish">
@@ -104,7 +94,12 @@
 							</div>
 							<div class="ingrCont"> 
 								<h3>INGREDIENTS FOR <span class="numberOfGuests"/> </span> PEOPLE</h3>
+								<table>
+									<tr>
 								<table id="ingrTable"></table>
+									</tr>
+									<tr><td><button id="confirmDish">Confirm Dish</button></td><td/><td><h4>SEK<span id="totalPrice"></span></h4></td></tr>
+							</table>
 							</div>
 						</div>
 					</div>

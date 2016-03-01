@@ -1,0 +1,4 @@
+TO DO:
+
+
+controllern är bara kopplad mot view en gång…
