@@ -6,7 +6,6 @@ model.addObserver(this)
 	this.printMenu = function () {
 			var dishes = model.getFullMenu();
 			var dishStr = "";
-			$("#printMenu").html("");
 			for (var i = 0; i < dishes.length; i++) {
 				var dish = dishes[i];
 				dishStr = '<div class="printMenu" data-id="'+dish.id+'">'; 

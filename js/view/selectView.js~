@@ -19,6 +19,7 @@ var SelectView = function (container, model) {
 			this.dishCont.append(dishStr);
 		}
 		this.imgCont = this.dishCont.find(".imgCont");
+		console.log(this.imgCont);
 	}
 
 	this.loadDishes("main dish");

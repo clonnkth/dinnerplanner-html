@@ -5,6 +5,7 @@ var ConfirmedView = function (container, model) {
 	this.loadMenu = function () {
 		var dishes = model.getFullMenu();
 		var dishStr = "";
+		$("#fullMenu").html("");
 		for (var i = 0; i < dishes.length; i++) {
 			var dish = dishes[i];
 			dishStr = '<div class="dishCont" data-id="'+dish.id+'">'; 

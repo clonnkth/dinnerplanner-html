@@ -4,18 +4,30 @@ var DinnerModel = function() {
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 	var nrGuests = 2;
-	var menu = [3, 100, 200];
-	
+	var menu = [1, 100, 200];
+	var observers = [];
+
+	this.notifyObservers = function(obj) {
+		for (var i = 0; i < observers.length; i++) {
+			observers[i].update(obj);
+		}
+	}
+
+	this.addObserver = function(observer) {
+		observers.push(observer);
+	}
+
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
 		nrGuests = num;
+		this.notifyObservers();
 	}
 
 	// should return 
 	this.getNumberOfGuests = function() {
 		return nrGuests;
-		//TODO Lab 2
+		
 	}
 
 	//Returns the dish that is on the menu for selected type 
@@ -50,7 +62,7 @@ var DinnerModel = function() {
 				allIngredients.push(ingredients[j]);
 			}
 		}
-		return (allIngredients);
+		return allIngredients;
 	}
 
 	this.getDishIngredients = function(id) {
@@ -69,7 +81,7 @@ var DinnerModel = function() {
 			//for (menu[i].ingredients)
 			totalMenuPrice +=  (allIngredients[i].price * nrGuests);
 		}
-		console.log (totalMenuPrice);
+		return totalMenuPrice;
 	}
 
 	this.getTotalDishPrice = function(id) {
@@ -96,6 +108,7 @@ var DinnerModel = function() {
 		} 
 
 		menu.push(id);
+		this.notifyObservers();
 
 	}
 
@@ -106,6 +119,7 @@ var DinnerModel = function() {
 		if(index > -1) {
 			menu.splice(index, 1);
 		}
+		this.notifyObservers();
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

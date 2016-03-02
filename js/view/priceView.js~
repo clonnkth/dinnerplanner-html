@@ -37,7 +37,7 @@ var PriceView = function (container, model) {
 	var dishStr = '<tr class="line"><td><h4 style="color:red">Pending</h4></td><td></td><td><h4 style="color:red">'+this.pending+'</h4></td></tr>'
 		dishStr+='<tr><td/><td/><td class="right"><h4 style="color:red">SEK <span style="color:red">'+model.getTotalMenuPrice()+' </span></h4></td></tr></table>'
 	$("#priceMenu").append(dishStr);
-	this.remove = this.priceMenu.find(".remove");
+	this.remove = this.dishCont.find(".remove");
 		
 
 };

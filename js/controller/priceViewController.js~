@@ -12,7 +12,6 @@ var PriceViewController = function(view, model ) {
  	$("#confirmButton").click(function(){
  		$("#priceView").hide();
  		$("#myDinnerView").show();
-		$("#printView").hide();
 		$("#confirmedView").show();
 
  	})

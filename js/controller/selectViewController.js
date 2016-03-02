@@ -9,7 +9,9 @@ var SelectViewController = function(view, view2, view3, model ) {
  		view.loadDishes(type.value, filter.value);
  	});
 
- 	view.imgCont.click(function() {
+ 	//$(document).on('click', '.imgCont', )
+ 	view.dishCont.on("click", '.imgCont', function() {
+		console.log("Happening");
  		$("#selectView").hide();
  		$("#detailsView").show();
  		view2.changeCurrent($(this).data("id"));
