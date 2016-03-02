@@ -183,15 +183,13 @@ td {
 
 .right {
     float: right;
-
 }
 
 .dishCont {
     height:300px;
-	max-width: 250px;
+	width: 250px;
     margin: 20px;
-	display:block;
-	flex:1;
+	display:inline-block;
 }
 
 .imgCont{
@@ -303,11 +301,6 @@ td {
 	display: block;
 }
 
-.dishCont
-{
-display:block;
-}
-
 
 .printMenu {
 	display:flex;
@@ -367,8 +360,8 @@ display:block;
 }
 
 #dishCont {
-    display: flex;
-    overflow: scroll;
+    display: inline-block;
+    overflow-y: scroll;
 }
 
 #img {
@@ -382,12 +375,6 @@ display:block;
 	border: 2px solid black;
 }  
 
-#numberOfGuests {
-    border: 2px solid black;
-    padding: 5px;
-    text-align: center;
-}
-
 
 #confirmDish{
     margin-top: 20px;
@@ -399,11 +386,7 @@ display:block;
 	width: 60%;
 	margin:auto;
 }
-#dishCont {
-	display: flex;
 
-	margin:auto;
-}
 #menu {
 	display: block;
 }

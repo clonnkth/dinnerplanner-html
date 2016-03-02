@@ -126,32 +126,38 @@ var DinnerModel = function() {
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type,filter) {
-	  return $(dishes).filter(function(index,dish) {
-		var found = true;
-		if(filter){
-			found = false;
-			$.each(dish.ingredients,function(index,ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
-					found = true;
-				}
-			});
-			if(dish.name.indexOf(filter) != -1)
-			{
-				found = true;
-			}
-		}
-	  	return dish.type == type && found;
-	  });	
-	}
-
+	  var apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
+        var categoryKeyword = type;
+        var url = "http://api.bigoven.com/recipes?api_key="+apiKey+"pg=1&rpp=25&any_kw="+categoryKeyword" 
+                  
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            cache: false,
+            url: url,
+            success: function (data) {
+               	//this.notifyObservers(data);
+                console.log(data);
+            }
+        });
+    }
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
-	  for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
-			}
-		}
-	}
+		var apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
+		var recipeID = id;
+		var url = "http://api.bigoven.com/recipe/" + id + "?api_key="+apiKey;
+		$.ajax({
+        	type: "GET",
+        	dataType: 'json',
+        	cache: false,
+        	url: url,
+        	success: function (data) {
+            	//this.notifyObservers(data);
+            	console.log(data);
+            }
+         });
+       }
+        
 
 
 	// the dishes variable contains an array of all the 
