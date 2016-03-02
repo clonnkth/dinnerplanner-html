@@ -20,7 +20,7 @@ var PriceView = function (container, model) {
 	}
 
 	this.writeMenu = function () {
-		$("#priceMenu").html(""); //Läser inte in korrekt - typ uppdaterar en gång men döljer sedan uppdateringarna
+		$("#priceMenu").html("");
 		fullMenu=model.getFullMenu()
 		var dishStr = '';
 	
@@ -29,12 +29,12 @@ var PriceView = function (container, model) {
 				var price = (model.getTotalDishPrice(dish.id));
 				dishStr = '<tr>'; 
 				dishStr += '<td><h4>'+dish.name+'</h4></td> ';
-				dishStr += '<td><h4>'+price+'</h4></td>';
+				dishStr += '<td><h4 class="right">'+price+'</h4></td>';
 				dishStr += '<td><button class="remove" data-id='+dish.id+'>x</button></td></tr>'
 				$("#priceMenu").append(dishStr);
 		
 	}
-	var dishStr = '<tr class="line"><td><h4 style="color:red">Pending</h4></td><td></td><td><h4 style="color:red">'+this.pending+'</h4></td></tr>'
+	var dishStr = '<tr class="line"><td><h4 style="color:red">Pending</h4></td><td><h4 class="right" style="color:red">'+this.pending+'</h4></td></tr>'
 		dishStr+='<tr><td/><td/><td class="right"><h4 style="color:red">SEK <span style="color:red">'+model.getTotalMenuPrice()+' </span></h4></td></tr></table>'
 	$("#priceMenu").append(dishStr);
 	this.remove = this.priceMenu.find(".remove");
