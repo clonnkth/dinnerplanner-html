@@ -6,7 +6,6 @@ var  MyDinnerView = function (container, model) {
 	
 	this.load = function() {
 		this.numberOfGuests.html(model.getNumberOfGuests());
-		console.log(this.numberOfGuests);
 	}
 
 	this.update = function(object) {

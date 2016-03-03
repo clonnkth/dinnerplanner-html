@@ -10,8 +10,12 @@ var DinnerModel = function() {
 
 
 	this.notifyObservers = function(obj) {
-		for (var i = 0; i < observers.length; i++) {
-			observers[i].update(obj);
+		if(obj.statusText === "error") {
+			console.log("error")
+		}else{
+			for (var i = 0; i < observers.length; i++) {
+				observers[i].update(obj);
+			}
 		}
 	}
 
@@ -130,15 +134,19 @@ var DinnerModel = function() {
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type,filter) {
+		console.log("here")
 	  var apiKey = this.apiKey;
-        var categoryKeyword = type;
+      var _this = this
         var url;
         if(type){ 
         	//url = "http://api.bigoven.com/recipes?api_key="+apiKey+"pg=1&rpp=25&any_kw="+categoryKeyword";
-        	url = 'http://api.bigoven.com/recipes?api_key='+this.apiKey+'&title_kw='+filter+'&any_kw='+type+'&pg=1&rpp=10';
+        	url = 'http://api.bigoven.com/recipes?api_key='+this.apiKey+'&any_kw='+type+'&pg=1&rpp=10';
+        	console.log("2")
         	}
+      
+        	
         else {
-        	url = url = 'http://api.bigoven.com/recipes?api_key='+this.apiKey+'&title_kw='+filter+'&pg=1&rpp=10';
+        	url = 'http://api.bigoven.com/recipes?api_key='+this.apiKey+'&title_kw='+filter+'&any_kw='+type+'&pg=1&rpp=10';
         }
                   
         $.ajax({
@@ -147,8 +155,12 @@ var DinnerModel = function() {
             cache: false,
             url: url,
             success: function (data) {
-               	//this.notifyObservers(data);
-                console.log(data);
+               	_this.notifyObservers(data.Results);
+               	console.log(data.Results);
+            },
+            error: function (a) {
+            	_this.notifyObservers(a);
+            	console.log("Error");
             }
         });
     };
@@ -165,7 +177,7 @@ var DinnerModel = function() {
         	url: url,
         	success: function (data) {
             	//this.notifyObservers(data);
-            	console.log(data);
+            	console.log(data.Results);
             }
          });
 	};

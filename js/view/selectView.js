@@ -7,7 +7,10 @@ var SelectView = function (container, model) {
 	
 
 	this.loadDishes = function (type, filter) {
+		console.log("0")
 		var dishes = model.getAllDishes(type, filter);
+		console.log("5")
+		console.log(dishes);
 		this.dishCont.html("");
 		var dishStr = "";
 		for (var i = 0; i < dishes.length; i++) {

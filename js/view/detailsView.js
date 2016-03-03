@@ -8,7 +8,7 @@ var DetailsView = function (container, model) {
 	this.confirmButton = container.find("#confirmDish");
 	this.totalDishPrice = container.find("#totalPrice");
 
-	this.currentId = 1;
+	this.currentId = null;
 
 	this.changeCurrent = function(id) {
 
