@@ -21,6 +21,6 @@ var SelectView = function (container, model) {
 		this.imgCont = this.dishCont.find(".imgCont");
 	}
 
-	this.loadDishes("main dish");
+	this.loadDishes("Appetizers");
 	//this.imgCont = container.find(".imgCont");
 }

@@ -6,7 +6,7 @@ var DinnerModel = function() {
 	var nrGuests = 0;
 	var menu = [];
 	var observers = [];
-	this.apiKey = '18f3cT02U9f6yRl3OKDpP8NA537kxYKu';
+	this.apiKey = 'r02x0R09O76JMCMc4nuM0PJXawUHpBUL';
 
 
 	this.notifyObservers = function(obj) {
@@ -102,7 +102,7 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		//TODO Lab 2 
-		var url = "http://api.bigoven.com/recipe/"+id+"?api_key="+this.api_key;
+		var url = "http://api.bigoven.com/recipe/"+id+"?api_key="+this.apiKey;
 
 		$.ajax({
 			type: 'GET',
@@ -112,8 +112,9 @@ var DinnerModel = function() {
 			success: function(data) {
 				this.fullMenu.push(data);
 				//_this.notifyObservers();
-			}
-	});
+				}
+			});
+	};
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
@@ -134,10 +135,10 @@ var DinnerModel = function() {
         var url;
         if(type){ 
         	//url = "http://api.bigoven.com/recipes?api_key="+apiKey+"pg=1&rpp=25&any_kw="+categoryKeyword";
-        	url = 'http://api.bigoven.com/recipes?api_key='+this.api_key+'&title_kw='+filter+'&any_kw='+type+'&pg=1&rpp=10';
+        	url = 'http://api.bigoven.com/recipes?api_key='+this.apiKey+'&title_kw='+filter+'&any_kw='+type+'&pg=1&rpp=10';
         	}
         else {
-        	url = url = 'http://api.bigoven.com/recipes?api_key='+this.api_key+'&title_kw='+filter+'&pg=1&rpp=10';
+        	url = url = 'http://api.bigoven.com/recipes?api_key='+this.apiKey+'&title_kw='+filter+'&pg=1&rpp=10';
         }
                   
         $.ajax({
@@ -150,7 +151,8 @@ var DinnerModel = function() {
                 console.log(data);
             }
         });
-    }
+    };
+
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
 		var apiKey = this.apiKey;
@@ -166,7 +168,8 @@ var DinnerModel = function() {
             	console.log(data);
             }
          });
-       }
+	};
+    
         
 
 
