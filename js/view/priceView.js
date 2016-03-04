@@ -9,8 +9,8 @@ var PriceView = function (container, model) {
 	this.pending = "0.00";
 	this.priceMenu = container.find("#priceMenu");
 
-	this.setPending = function(id){
-		this.pending = model.getTotalDishPrice(id);
+	this.setPending = function(obj){
+		this.pending = model.getTotalDishPrice(obj);
 		this.update();
 	}
 
@@ -19,14 +19,14 @@ var PriceView = function (container, model) {
 		this.update();
 	}
 
-	this.writeMenu = function () {
+	this.writeMenu = function (obj) {
 		$("#priceMenu").html("");
 		fullMenu=model.getFullMenu()
 		var dishStr = '';
 	
 			for (var i = 0; i < fullMenu.length; i++) {
 				var dish = fullMenu[i];
-				var price = (model.getTotalDishPrice(dish.id));
+				var price = (model.getTotalDishPrice(obj));
 				dishStr = '<tr>'; 
 				dishStr += '<td><h4>'+dish.name+'</h4></td> ';
 				dishStr += '<td><h4 class="right">'+price+'</h4></td>';
@@ -43,18 +43,17 @@ var PriceView = function (container, model) {
 };
 
 
-	this.load = function() {
+	this.load = function(obj) {
 		this.numberOfGuests.html(model.getNumberOfGuests());
 		//this.totalMenuPrice.html(model.getTotalMenuPrice());
-		this.writeMenu();
+		this.writeMenu(obj);
 	}
 
 	
 
-	this.update = function(object) {
-		this.load();
+	this.update = function(obj) {
+		this.load(obj);
 	}
 
-	this.load();
 	
 }

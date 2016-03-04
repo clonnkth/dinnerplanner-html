@@ -8,10 +8,10 @@ var SelectView = function (container, model) {
 	
 
 	this.loadDishes = function (obj) {
-		console.log("0")
+	
 		var dishes = obj;
 		console.log(dishes);
-		console.log("5")
+	
 		this.dishCont.html("");
 		var dishStr = "";
 		for (var i = 0; i < dishes.length; i++) {
@@ -29,5 +29,5 @@ var SelectView = function (container, model) {
 
 	}
 	//this.imgCont = container.find(".imgCont");
-	 model.setAllDishes("Appetizers");
+	 model.getAllDishes("Appetizers");
 }

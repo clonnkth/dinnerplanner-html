@@ -6,7 +6,9 @@ var DinnerModel = function() {
 	var nrGuests = 0;
 	var menu = [];
 	var observers = [];
-	this.dishes = null
+	this.dishes = null;
+	this.dish = null;
+	
 	
 	this.apiKey = 'r02x0R09O76JMCMc4nuM0PJXawUHpBUL';
 
@@ -15,9 +17,14 @@ var DinnerModel = function() {
 		/*if(obj.statusText === "error") {
 			console.log("error")
 		}else{*/
+		/*if(obj)	{*/
 			for (var i = 0; i < observers.length; i++) {
 				observers[i].update(obj);
 			}
+		/*}
+		else{
+			view.update(obj);
+		}*/
 		//}
 	}
 
@@ -42,8 +49,8 @@ var DinnerModel = function() {
 	this.getSelectedDish = function(type) {
 		//TODO Lab 2
 		for(var i = 0; i < menu.length ; i++){
-			var dish = this.getDish(menu[i]);
-			if(dish.type === type) {
+			var dish = menu[i];
+			if(dish.Category === type) {
 				return dish;
 			}
 		}
@@ -52,20 +59,21 @@ var DinnerModel = function() {
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		//TODO Lab 2
-		var fullMenu = [];
-		for(var i = 0; i < menu.length; i++){
-			fullMenu.push(this.getDish(menu[i]));		
-		}
-		return fullMenu;
+		//var fullMenu = [];
+		//for(var i = 0; i < menu.length; i++){
+		//	fullMenu.push(this.getDish(menu[i]));		
+		//}
+		return menu;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
 		//TODO Lab 2
 		var allIngredients = []
-		var fullMenu = this.getFullMenu();
-		for(var i = 0; i < fullMenu.length; i++) {
-			var ingredients = fullMenu[i].ingredients
+
+		//var fullMenu = this.getFullMenu();
+		for(var i = 0; i < menu.length; i++) {
+			var ingredients = menu[i].Ingredients
 			for(var j = 0; j < ingredients.length; j++) {
 				allIngredients.push(ingredients[j]);
 			}
@@ -73,87 +81,58 @@ var DinnerModel = function() {
 		return allIngredients;
 	}
 
-	this.getDishIngredients = function(id) {
+	/*this.getDishIngredients = function(obj) {
 		//TODO Lab 2
-		var dish = this.getDish(id);
-		var ingredients = dish.ingredients;
-		return ingredients;
-	}
+		//var dish = this.getDish(id);
+		//var ingredients = this.dish.Ingredients;
+		return obj.Ingredients;
+	}*/
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
 		//TODO Lab 2
 		allIngredients = this.getAllIngredients();
-		var totalMenuPrice = 0;
+		var totalMenuPrice = 0.00;
 		for(var i = 0; i < allIngredients.length ; i++){
 			//for (menu[i].ingredients)
-			totalMenuPrice +=  (allIngredients[i].price * nrGuests);
+			totalMenuPrice +=  (allIngredients[i].Quantity * nrGuests);
 		}
 		return totalMenuPrice;
 	}
 
-	this.getTotalDishPrice = function(id) {
-		//TODO Lab 2
-		ingredients = this.getDish(id).ingredients;
+	this.getTotalDishPrice = function(obj) {
+		ingredients = obj.Ingredients;
 		var totalDishPrice = 0.00;
 		for(var i = 0; i < ingredients.length ; i++){
-			//for (menu[i].ingredients)
-			totalDishPrice = totalDishPrice + (ingredients[i].price * nrGuests);
+			totalDishPrice += (ingredients[i].Quantity * nrGuests);
 		}
 		return totalDishPrice;
 	}
 
 
-	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
-	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(id) {
-		//TODO Lab 2 
-		var url = "http://api.bigoven.com/recipe/"+id+"?api_key="+this.apiKey;
-
-		$.ajax({
-			type: 'GET',
-			dataType: 'json',
-			cache: false,
-			url: url,
-			success: function(data) {
-				this.fullMenu.push(data);
-				//_this.notifyObservers();
-				}
-			});
+	this.addDishToMenu = function() {
+		this.menu.push(this.dish);		
 	};
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		//TODO Lab 2
-		var index = menu.indexOf(id)
-		if(index > -1) {
-			menu.splice(index, 1);
-		}
-		this.notifyObservers();
+		if(Recipe.RecipeID = id){
+			var index = menu.indexOf(Recipe)
+			if(index > -1) {
+				menu.splice(index, 1);
+			}
+			this.notifyObservers();
+			}
 	};
-
-
-
-	
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.setAllDishes = function (type, filter) {
-		console.log("here")
+	this.getAllDishes = function (type, filter) {
 	  var apiKey = this.apiKey;
       var _this = this
         var url;
-        if(type){ 
-        	//url = "http://api.bigoven.com/recipes?api_key="+apiKey+"pg=1&rpp=25&any_kw="+categoryKeyword";
-        	url = 'http://api.bigoven.com/recipes?api_key='+this.apiKey+'&any_kw='+type+'&pg=1&rpp=10';
-        	console.log("2")
-        	}
-      
-        	
-        else {
-        	url = 'http://api.bigoven.com/recipes?api_key='+this.apiKey+'&title_kw='+filter+'&any_kw='+type+'&pg=1&rpp=10';
-        }
+        url = 'http://api.bigoven.com/recipes?api_key='+this.apiKey+'&title_kw='+filter+'&any_kw='+type+'&pg=1&rpp=10';
                   
         $.ajax({
             type: "GET",
@@ -161,8 +140,7 @@ var DinnerModel = function() {
             cache: false,
             url: url,
             success: function(data){
-            	this.dishes=data.Results;
-            	console.log(this.dishes);
+            	this.dishes = data.Results;
             	_this.notifyObservers(data.Results);
 
 
@@ -173,37 +151,34 @@ var DinnerModel = function() {
             	console.log("Error");
             }
         }).done (function () {
-            	alert("Done!");
+            	console.log("Done!");
             
          });
     };
 
-  
-
-   this.getAllDishes = function(){
-   	return this.dishes
-   };
-
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
+		var _this = this;
 		var apiKey = this.apiKey;
-		var recipeID = id;
-		var url = "http://api.bigoven.com/recipe/"+id+"?api_key="+apiKey;
+		var url = 'http://api.bigoven.com/recipe/'+id+'?api_key='+apiKey;
+		console.log(url)
 		$.ajax({
         	type: "GET",
         	dataType: 'json',
         	cache: false,
         	url: url,
         	success: function (data) {
-            	//this.notifyObservers(data);
-            	console.log(data.Results);
+        		this.dish=data;
+        		console.log(data);
+            	_this.notifyObservers(data);
+            	
             }
          });
 	};
-    
+
+
+
         
-
-
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
 	// image (name of the image file), description and
