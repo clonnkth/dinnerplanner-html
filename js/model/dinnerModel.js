@@ -6,17 +6,19 @@ var DinnerModel = function() {
 	var nrGuests = 0;
 	var menu = [];
 	var observers = [];
+	this.dishes = null
+	
 	this.apiKey = 'r02x0R09O76JMCMc4nuM0PJXawUHpBUL';
 
 
 	this.notifyObservers = function(obj) {
-		if(obj.statusText === "error") {
+		/*if(obj.statusText === "error") {
 			console.log("error")
-		}else{
+		}else{*/
 			for (var i = 0; i < observers.length; i++) {
 				observers[i].update(obj);
 			}
-		}
+		//}
 	}
 
 	this.addObserver = function(observer) {
@@ -128,12 +130,16 @@ var DinnerModel = function() {
 			menu.splice(index, 1);
 		}
 		this.notifyObservers();
-	}
+	};
+
+
+
+	
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
+	this.setAllDishes = function (type, filter) {
 		console.log("here")
 	  var apiKey = this.apiKey;
       var _this = this
@@ -154,16 +160,29 @@ var DinnerModel = function() {
             dataType: 'json',
             cache: false,
             url: url,
-            success: function (data) {
-               	_this.notifyObservers(data.Results);
-               	console.log(data.Results);
+            success: function(data){
+            	this.dishes=data.Results;
+            	console.log(this.dishes);
+            	_this.notifyObservers(data.Results);
+
+
             },
+            
             error: function (a) {
             	_this.notifyObservers(a);
             	console.log("Error");
             }
-        });
+        }).done (function () {
+            	alert("Done!");
+            
+         });
     };
+
+  
+
+   this.getAllDishes = function(){
+   	return this.dishes
+   };
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
@@ -193,7 +212,7 @@ var DinnerModel = function() {
 	// defining the unit i.e. "g", "slices", "ml". Unit
 	// can sometimes be empty like in the example of eggs where
 	// you just say "5 eggs" and not "5 pieces of eggs" or anything else.
-	var dishes = [{
+	/*var dishes = [{
 		'id':1,
 		'name':'French toast',
 		'type':'starter',
@@ -434,6 +453,6 @@ var DinnerModel = function() {
 			'price':6
 			}]
 		}
-	];
+	];*/
 
 }

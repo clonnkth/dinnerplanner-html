@@ -7,7 +7,7 @@ var SelectViewController = function(view, view2, view3, model ) {
 
  	view.searchButton.click(function() {
  		console.log(type.value, filter.value);
- 		view.loadDishes(type.value, filter.value);
+ 		model.setAllDishes(type.value, filter.value);
  	});
 
  	//$(document).on('click', '.imgCont', )

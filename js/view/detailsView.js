@@ -19,7 +19,7 @@ var DetailsView = function (container, model) {
 
 	this.load = function(id) {
 		this.dish.html(model.getDish(id));
-		this.dishName.html(model.getDish(id).name);
+		this.dishName.html(model.getDish(id).Title);
 		this.preparation.html((model.getDish(id)).description);
 		this.totalDishPrice.html(model.getTotalDishPrice(id));
 		loadDish(id);
@@ -31,9 +31,9 @@ var DetailsView = function (container, model) {
 		$("#dishCont2").empty();
 		var dish = model.getDish(id);
 		var dishStr = "";
-		dishStr = '<div class="dishCont2" data-id="'+dish.id+'">'; 
-		dishStr += '<h3 class="dishName2">'+dish.name+'</h3> </div>';
-		dishStr += '<div class="imgCont2"> <img id="img2" src="images/'+dish.image+'" alt="'+dish.name+'"></img>';
+		dishStr = '<div class="dishCont2" data-id="'+dish.RecipeID+'">'; 
+		dishStr += '<h3 class="dishName2">'+dish.Title+'</h3> </div>';
+		dishStr += '<div class="imgCont2"> <img id="img2" src="'+dish.ImageURL+'" alt="'+dish.Title+'"></img>';
 		dishStr += '<div class="description2"><h5>'+dish.description+'</h5> </div> </div>';
 
 		$("#dishCont2").append(dishStr);

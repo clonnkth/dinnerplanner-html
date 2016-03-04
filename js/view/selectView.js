@@ -4,26 +4,30 @@ var SelectView = function (container, model) {
 	this.filter = container.find("#filter");
 	this.type = container.find("#type");
 	this.dishCont = container.find("#dishCont");
+	model.addObserver(this);
 	
 
-	this.loadDishes = function (type, filter) {
+	this.loadDishes = function (obj) {
 		console.log("0")
-		var dishes = model.getAllDishes(type, filter);
-		console.log("5")
+		var dishes = obj;
 		console.log(dishes);
+		console.log("5")
 		this.dishCont.html("");
 		var dishStr = "";
 		for (var i = 0; i < dishes.length; i++) {
 			var dish = dishes[i];
-			dishStr = '<div class="dishCont"> <div class="imgCont" data-id="'+dish.id+'">'; 
-			dishStr += '<img id="img" src="images/'+dish.image+'" alt="'+dish.name+'"></img>';
-			dishStr += '<h3 class="dishNames">'+dish.name+'</h3> </div>';
-			dishStr += '<div class="description"><h5>'+dish.description+'</h5> </div> </div>';
+			dishStr = '<div class="dishCont"> <div class="imgCont" data-id="'+dish.RecipeID+'">'; 
+			dishStr += '<img id="img" src="'+dish.ImageURL+'" alt="'+dish.Title+'"></img>';
+			dishStr += '<h3 class="dishNames">'+dish.Title+'</h3> </div>';
+			dishStr += '<div class="description"><h5>'+dish.Subcategory+'</h5> </div> </div>';
 			this.dishCont.append(dishStr);
 		}
 		this.imgCont = this.dishCont.find(".imgCont");
 	}
+	this.update = function(obj){
+		this.loadDishes(obj);
 
-	this.loadDishes("Appetizers");
+	}
 	//this.imgCont = container.find(".imgCont");
+	 model.setAllDishes("Appetizers");
 }
