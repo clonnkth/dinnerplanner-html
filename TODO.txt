@@ -1,0 +1,7 @@
+NotifyObservers:
+- (Kolla om det är int, array eller object och då kallas det på olika views) Eller bara skicka in viewn och updatera endast den
+
+- Tar bort loading symbolen när det sker ett success
+
+DetailsView:
+-Fixa så att ingredienserna visas 

@@ -10,7 +10,7 @@ var DinnerModel = function() {
 	this.dish = null;
 	
 	
-	this.apiKey = 'r02x0R09O76JMCMc4nuM0PJXawUHpBUL';
+	this.apiKey = '18f3cT02U9f6yRl3OKDpP8NA537kxYKu';
 
 
 	this.notifyObservers = function(obj) {
@@ -133,6 +133,7 @@ var DinnerModel = function() {
       var _this = this
         var url;
         url = 'http://api.bigoven.com/recipes?api_key='+this.apiKey+'&title_kw='+filter+'&any_kw='+type+'&pg=1&rpp=10';
+		console.log(url)
                   
         $.ajax({
             type: "GET",
@@ -141,6 +142,7 @@ var DinnerModel = function() {
             url: url,
             success: function(data){
             	this.dishes = data.Results;
+				console.log(data.Results)
             	_this.notifyObservers(data.Results);
 
 
