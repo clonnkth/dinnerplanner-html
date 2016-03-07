@@ -29,5 +29,5 @@ var SelectView = function (container, model) {
 
 	}
 	//this.imgCont = container.find(".imgCont");
-	 model.getAllDishes("Appetizers");
+	 model.getAllDishes("Appetizers", this);
 }

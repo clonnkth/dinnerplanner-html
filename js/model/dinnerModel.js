@@ -13,30 +13,52 @@ var DinnerModel = function() {
 	this.apiKey = '18f3cT02U9f6yRl3OKDpP8NA537kxYKu';
 
 
-	this.notifyObservers = function(obj) {
+	/*this.notifyObservers = function(obj) {
 		/*if(obj.statusText === "error") {
 			console.log("error")
 		}else{*/
 		/*if(obj)	{*/
-			for (var i = 0; i < observers.length; i++) {
-				observers[i].update(obj);
-			}
+			//for (var i = 0; i < observers.length; i++) {
+			//	observers[i].update(obj);
+			//}
 		/*}
 		else{
 			view.update(obj);
 		}*/
+		//}}*/
+
+	this.notifyObservers = function (view, data) {
+	//if(view) {
+		if(data.statusText === "error"){
+		
+			view.showStatus(data.statusText + data.responseText);
+		} else {
+			console.log(view)
+			view.update(data)
+			//for(var i=0;i<this.observers.length; i++) {
+				//if (view === this.observers[i]) {
+				//	this.observers[i].update(data);	
+				//}
+			}
+		}
+	//} else {
+		//for(var i=0;i<this.observers.length; i++) {
+		//	this.observers[i].update();
 		//}
-	}
+	//}
+//}
+	
 
 	this.addObserver = function(observer) {
 		observers.push(observer);
 	}
 
 
-	this.setNumberOfGuests = function(num) {
+	this.setNumberOfGuests = function(num, views) {
 		//TODO Lab 2
 		nrGuests = num;
-		this.notifyObservers();
+		this.notifyObservers(view, num);
+		//console.log(view)
 	}
 
 	// should return 
@@ -106,31 +128,33 @@ var DinnerModel = function() {
 		for(var i = 0; i < ingredients.length ; i++){
 			totalDishPrice += (ingredients[i].Quantity * nrGuests);
 		}
+		this.notifyObservers(view, totalDishPrice);
 		return totalDishPrice;
 	}
 
 
 	this.addDishToMenu = function(obj) {
-		console.log(obj);
-		console.log(this.menu)
-		this.menu.push(obj);		
+		//console.log(obj);
+		//console.log(this.menu)
+		this.menu.push(obj);
+		this.notifyObservers(view, menu);		
 	};
 
 	//Removes dish from menu
-	this.removeDishFromMenu = function(id) {
+	this.removeDishFromMenu = function(id, view) {
 		if(Recipe.RecipeID = id){
 			var index = menu.indexOf(Recipe)
 			if(index > -1) {
 				menu.splice(index, 1);
 			}
-			this.notifyObservers();
+			this.notifyObservers(view, menu);
 			}
 	};
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type, filter) {
+	this.getAllDishes = function (type, filter, view) {
 	  var apiKey = this.apiKey;
       var _this = this
         var url;
@@ -144,8 +168,8 @@ var DinnerModel = function() {
             url: url,
             success: function(data){
             	this.dishes = data.Results;
-				console.log(data.Results)
-            	_this.notifyObservers(data.Results);
+				//console.log(data.Results)
+            	_this.notifyObservers(view, data.Results);
 
 
             },
@@ -161,7 +185,7 @@ var DinnerModel = function() {
     };
 
 	//function that returns a dish of specific ID
-	this.getDish = function (id) {
+	this.getDish = function (id, view) {
 		var _this = this;
 		var apiKey = this.apiKey;
 		var url = 'http://api.bigoven.com/recipe/'+id+'?api_key='+apiKey;
@@ -174,7 +198,7 @@ var DinnerModel = function() {
         	success: function (data) {
         		this.dish=data;
         		console.log(data);
-            	_this.notifyObservers(data);
+            	_this.notifyObservers(view, data);
             	
             }
          });
