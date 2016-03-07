@@ -10,7 +10,7 @@ var PriceView = function (container, model) {
 	this.priceMenu = container.find("#priceMenu");
 
 	this.setPending = function(obj){
-		this.pending = model.getTotalDishPrice(obj);
+		this.pending = model.getTotalDishPrice(this, obj);
 		this.update();
 	}
 
@@ -26,7 +26,7 @@ var PriceView = function (container, model) {
 	
 			for (var i = 0; i < fullMenu.length; i++) {
 				var dish = fullMenu[i];
-				var price = (model.getTotalDishPrice(obj));
+				var price = (model.getTotalDishPrice(this, obj));
 				dishStr = '<tr>'; 
 				dishStr += '<td><h4>'+dish.name+'</h4></td> ';
 				dishStr += '<td><h4 class="right">'+price+'</h4></td>';

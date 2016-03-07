@@ -54,7 +54,7 @@ var DinnerModel = function() {
 	}
 
 
-	this.setNumberOfGuests = function(num, views) {
+	this.setNumberOfGuests = function(view, num) {
 		//TODO Lab 2
 		nrGuests = num;
 		this.notifyObservers(view, num);
@@ -123,19 +123,19 @@ var DinnerModel = function() {
 	}
 
 	this.getTotalDishPrice = function(obj) {
+		console.log(obj)
 		ingredients = obj.Ingredients;
 		var totalDishPrice = 0.00;
 		for(var i = 0; i < ingredients.length ; i++){
 			totalDishPrice += (ingredients[i].Quantity * nrGuests);
 		}
-		this.notifyObservers(view, totalDishPrice);
 		return totalDishPrice;
 	}
 
 
-	this.addDishToMenu = function(obj) {
+	this.addDishToMenu = function(view, obj) {
 		//console.log(obj);
-		//console.log(this.menu)
+		console.log(this.menu)
 		this.menu.push(obj);
 		this.notifyObservers(view, menu);		
 	};
@@ -154,7 +154,7 @@ var DinnerModel = function() {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type, filter, view) {
+	this.getAllDishes = function (view, type, filter) {
 	  var apiKey = this.apiKey;
       var _this = this
         var url;
@@ -185,7 +185,7 @@ var DinnerModel = function() {
     };
 
 	//function that returns a dish of specific ID
-	this.getDish = function (id, view) {
+	this.getDish = function (view, id) {
 		var _this = this;
 		var apiKey = this.apiKey;
 		var url = 'http://api.bigoven.com/recipe/'+id+'?api_key='+apiKey;

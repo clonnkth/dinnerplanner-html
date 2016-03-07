@@ -1,11 +1,11 @@
 var PriceViewController = function(view, view2, view3, model ) {
  
  	$("#plusGuest").click(function(){
- 		model.setNumberOfGuests(model.getNumberOfGuests() + 1, view);
+ 		model.setNumberOfGuests(view, model.getNumberOfGuests() + 1);
  	});
  
  	$("#minusGuest").click(function(){
- 		model.setNumberOfGuests(model.getNumberOfGuests() - 1l view);
+ 		model.setNumberOfGuests(view, model.getNumberOfGuests() - 1 );
  	});
 
  	$("#confirmButton").click(function(){

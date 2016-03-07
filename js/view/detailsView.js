@@ -19,11 +19,12 @@ var DetailsView = function (container, model) {
 	}*/
 
 	this.load = function(obj) {
-		console.log("herro")
+		console.log(obj)
 		this.dish.html(obj.RecipeID);
 		this.dishName.html(obj.Title);
 		this.preparation.html(obj.Instructions);
 		this.totalDishPrice.html(model.getTotalDishPrice(obj));
+		console.log(obj)
 		loadDish(obj);
  		loadIngr(obj);
 	};
@@ -42,14 +43,13 @@ var DetailsView = function (container, model) {
 	};
 
 	this.dishToMenu = function() {
-		model.addDishToMenu(this.obj);
+		model.addDishToMenu(priceView, this.obj);
 	}
 	
 //Gör en tabell med allt som finns i ingredients. När tabellen görs ska price och amount multipliceras med antal gäster. Använd getNumberOfGuests.
 	var loadIngr = function (obj) {
 		$("#ingrTable").empty();
 		var ingredients = obj.Ingredients;
-		console.log(ingredients);
 		var ingrStr = "";
 		var nrGuests =  model.getNumberOfGuests();
 		for (var i = 0; i < ingredients.length; i++) {
