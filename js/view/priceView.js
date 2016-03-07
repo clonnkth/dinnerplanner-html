@@ -16,7 +16,7 @@ var PriceView = function (container, model) {
 
 	this.clearPending = function (){
 		this.pending = "0.00";
-		this.update();
+		//this.update();
 	}
 
 	this.writeMenu = function (obj) {
@@ -45,7 +45,7 @@ var PriceView = function (container, model) {
 
 	this.load = function(obj) {
 		this.numberOfGuests.html(model.getNumberOfGuests());
-		//this.totalMenuPrice.html(model.getTotalMenuPrice());
+		this.totalMenuPrice.html(model.getTotalMenuPrice());
 		this.writeMenu(obj);
 	}
 

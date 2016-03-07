@@ -1,5 +1,5 @@
 var PrintView = function (container, model) {
-model.addObserver(this)
+	model.addObserver(this)
 	this.numberOfGuests = container.find(".numberOfGuests");
 	this.numberOfGuests.html(model.getNumberOfGuests());
 

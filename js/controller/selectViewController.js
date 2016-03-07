@@ -6,17 +6,19 @@ var SelectViewController = function(view, view2, view3, model ) {
 	*/
 
  	view.searchButton.click(function() {
- 		console.log(filter.value);
-		//$(".loadingCont").show();
- 		model.getAllDishes(type.value, filter.value);
+ 		//console.log(filter.value);
+		$("#loadingCont").show();
+ 		model.getAllDishes(type.value, filter.value, view);
+ 		//$(".loadingCont").hide();
  	});
 
  	//$(document).on('click', '.imgCont', )
  	view.dishCont.on("click", '.imgCont', function() {
 		//console.log("Happening");
  		$("#selectView").hide();
+ 		$("#loadingCont").show();
  		$("#detailsView").show();
- 		model.getDish($(this).data("id"));
+ 		model.getDish($(this).data("id"), view2);
 
  		//view2.changeCurrent($(this).data("id"));
  		console.log($(this).data("id"))
