@@ -110,8 +110,10 @@ var DinnerModel = function() {
 	}
 
 
-	this.addDishToMenu = function() {
-		this.menu.push(this.dish);		
+	this.addDishToMenu = function(obj) {
+		console.log(obj);
+		console.log(this.menu)
+		this.menu.push(obj);		
 	};
 
 	//Removes dish from menu

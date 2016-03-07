@@ -11,7 +11,7 @@ var DetailsViewController = function(view, view2, model) {
  		$("#detailsView").hide();
  		$("#selectView").show();
  		view2.clearPending();
- 		model.addDishToMenu();
+ 		view.dishToMenu();
 
  	});
 

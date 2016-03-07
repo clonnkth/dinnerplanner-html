@@ -7,6 +7,7 @@ var DetailsView = function (container, model) {
 	this.backButton = container.find("#backButton");
 	this.confirmButton = container.find("#confirmDish");
 	this.totalDishPrice = container.find("#totalPrice");
+	this.obj = null
 
 	//this.current
 
@@ -22,9 +23,9 @@ var DetailsView = function (container, model) {
 		this.dish.html(obj.RecipeID);
 		this.dishName.html(obj.Title);
 		this.preparation.html(obj.Instructions);
-		//this.totalDishPrice.html(model.getTotalDishPrice(obj));
+		this.totalDishPrice.html(model.getTotalDishPrice(obj));
 		loadDish(obj);
- 		//loadIngr(obj);
+ 		loadIngr(obj);
 	};
 
 
@@ -40,20 +41,23 @@ var DetailsView = function (container, model) {
 		$("#dishCont2").append(dishStr);
 	};
 
+	this.dishToMenu = function() {
+		model.addDishToMenu(this.obj);
+	}
 	
 //Gör en tabell med allt som finns i ingredients. När tabellen görs ska price och amount multipliceras med antal gäster. Använd getNumberOfGuests.
 	var loadIngr = function (obj) {
 		$("#ingrTable").empty();
-		var ingredients = model.getDishIngredients(obj);
-		//console.log(ingredients);
+		var ingredients = obj.Ingredients;
+		console.log(ingredients);
 		var ingrStr = "";
 		var nrGuests =  model.getNumberOfGuests();
 		for (var i = 0; i < ingredients.length; i++) {
 			var ingredient = ingredients[i];
 			ingrStr = '<tr class="ingrRow">'; 
 			ingrStr += '<h5><td><span class="qspan">'+ingredient.Quantity * nrGuests+'</span> <span class="uspan">'+ingredient.unit+'</span> </td>'; 
-			ingrStr += '<td><span class="nspan">'+ingredient.name+'</span></td>'; 
-			ingrStr += '<td><span class="pspan"> SEK '+ingredient.price * nrGuests+'</span></td></h5></tr>'; 
+			ingrStr += '<td><span class="nspan">'+ingredient.Name+'</span></td>'; 
+			ingrStr += '<td><span class="pspan"> SEK '+ingredient.Quantity * nrGuests+'</span></td></h5></tr>'; 
 		
 			//console.log(ingrStr);
 
@@ -64,6 +68,7 @@ var DetailsView = function (container, model) {
 
 	this.update = function(obj) {
 		this.load(obj);
+		this.obj = obj;
 	}
 	
 }

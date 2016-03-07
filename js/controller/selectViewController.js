@@ -7,7 +7,7 @@ var SelectViewController = function(view, view2, view3, model ) {
 
  	view.searchButton.click(function() {
  		console.log(filter.value);
-		$(".loadingCont").show();
+		//$(".loadingCont").show();
  		model.getAllDishes(type.value, filter.value);
  	});
 
