@@ -8,10 +8,10 @@ var ConfirmedView = function (container, model) {
 		$("#fullMenu").html("");
 		for (var i = 0; i < dishes.length; i++) {
 			var dish = dishes[i];
-			dishStr = '<div class="dishCont" data-id="'+dish.id+'">'; 
-			dishStr += '<div class="imgCont"> <img id="img" src="images/'+dish.image+'" alt="'+dish.name+'"></img>';
-			dishStr += '<h3 class="dishNames">'+dish.name+'</h3> </div>';
-			dishStr += '<div class="price"><h5 style="color:red">'+model.getTotalDishPrice(dish.id)+' SEK </h5> </div> </div>';
+			dishStr = '<div class="dishCont" data-id="'+dish.RecipeID+'">'; 
+			dishStr += '<div class="imgCont"> <img id="img" src="images/'+dish.ImageURL+'" alt="'+dish.Title+'"></img>';
+			dishStr += '<h3 class="dishNames">'+dish.Title+'</h3> </div>';
+			dishStr += '<div class="price"><h5 style="color:red">'+model.getTotalDishPrice(dish.RecipeID)+' SEK </h5> </div> </div>';
 
 
 			$("#fullMenu").append(dishStr);

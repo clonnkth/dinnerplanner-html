@@ -1,4 +1,6 @@
-TO DO:
-
-
-controllern är bara kopplad mot view en gång…
+﻿TO DO:
+ -Fixa laddningssymbolen
+ -Fixa så det går att lägga till rätter i menyn
+	-Se till så att confimerView och printView fungerar med de nya funktionerna
+ -Få pending att fungera igen
+ -Antal på ingredienser påverkas inte när fler gäster läggs till

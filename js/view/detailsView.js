@@ -55,7 +55,7 @@ var DetailsView = function (container, model) {
 		for (var i = 0; i < ingredients.length; i++) {
 			var ingredient = ingredients[i];
 			ingrStr = '<tr class="ingrRow">'; 
-			ingrStr += '<h5><td><span class="qspan">'+ingredient.Quantity * nrGuests+'</span> <span class="uspan">'+ingredient.unit+'</span> </td>'; 
+			ingrStr += '<h5><td><span class="qspan">'+ingredient.Quantity * nrGuests+'</span> <span class="uspan">'+ingredient.Unit+'</span> </td>'; 
 			ingrStr += '<td><span class="nspan">'+ingredient.Name+'</span></td>'; 
 			ingrStr += '<td><span class="pspan"> SEK '+ingredient.Quantity * nrGuests+'</span></td></h5></tr>'; 
 		

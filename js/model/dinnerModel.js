@@ -133,10 +133,10 @@ var DinnerModel = function() {
 	}
 
 
-	this.addDishToMenu = function(view, obj) {
+	this.addDishToMenu = function(view, obj, menu) {
 		//console.log(obj);
-		console.log(this.menu)
-		this.menu.push(obj);
+		console.log(menu)
+		menu.push(obj);
 		this.notifyObservers(view, menu);		
 	};
 
