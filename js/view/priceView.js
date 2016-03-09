@@ -1,4 +1,4 @@
-var PriceView = function (container, model) {
+var PriceView = function (container,container2, model) {
 
 	model.addObserver(this);
 	this.numberOfGuests = container.find(".numberOfGuests");
@@ -6,31 +6,35 @@ var PriceView = function (container, model) {
 	this.minusButton = container.find("#minusGuest");
 	this.totalMenuPrice = container.find("#totalMenuPrice");
 	this.confirmButton = container.find("#confirmButton");
+	//this.dishPrice = container2.find("#pspan").data("price");
 	this.pending = "0.00";
 	this.priceMenu = container.find("#priceMenu");
 
-	this.setPending = function(obj){
-		this.pending = model.getTotalDishPrice(this, obj);
+
+	this.setPending = function(price){
+		console.log(price)
+		this.pending = price;
 		this.update();
 	}
 
 	this.clearPending = function (){
+		console.log("Inne")
 		this.pending = "0.00";
-		//this.update();
+		this.update();
 	}
 
-	this.writeMenu = function (obj) {
+	this.writeMenu = function () {
 		$("#priceMenu").html("");
 		fullMenu=model.getFullMenu()
 		var dishStr = '';
 	
 			for (var i = 0; i < fullMenu.length; i++) {
 				var dish = fullMenu[i];
-				var price = (model.getTotalDishPrice(this, obj));
+				var price = (model.getTotalDishPrice(dish));
 				dishStr = '<tr>'; 
-				dishStr += '<td><h4>'+dish.name+'</h4></td> ';
+				dishStr += '<td><h4>'+dish.Title+'</h4></td> ';
 				dishStr += '<td><h4 class="right">'+price+'</h4></td>';
-				dishStr += '<td><button class="remove" data-id='+dish.id+'>x</button></td></tr>'
+				dishStr += '<td><button class="remove" data-id='+dish.RecipeID+'>x</button></td></tr>'
 				$("#priceMenu").append(dishStr);
 		
 	}
@@ -43,17 +47,17 @@ var PriceView = function (container, model) {
 };
 
 
-	this.load = function(obj) {
+	this.load = function() {
 		this.numberOfGuests.html(model.getNumberOfGuests());
 		this.totalMenuPrice.html(model.getTotalMenuPrice());
-		this.writeMenu(obj);
+		this.writeMenu();
 	}
 
 	
 
 	this.update = function(obj) {
-		this.load(obj);
+		this.load();
 	}
-
+this.load();
 	
 }

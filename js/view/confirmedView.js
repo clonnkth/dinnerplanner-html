@@ -9,9 +9,9 @@ var ConfirmedView = function (container, model) {
 		for (var i = 0; i < dishes.length; i++) {
 			var dish = dishes[i];
 			dishStr = '<div class="dishCont" data-id="'+dish.RecipeID+'">'; 
-			dishStr += '<div class="imgCont"> <img id="img" src="images/'+dish.ImageURL+'" alt="'+dish.Title+'"></img>';
+			dishStr += '<div class="imgCont"> <img id="img" src="'+dish.ImageURL+'" alt="'+dish.Title+'"></img>';
 			dishStr += '<h3 class="dishNames">'+dish.Title+'</h3> </div>';
-			dishStr += '<div class="price"><h5 style="color:red">'+model.getTotalDishPrice(dish.RecipeID)+' SEK </h5> </div> </div>';
+			dishStr += '<div class="price"><h5 style="color:red">'+model.getTotalDishPrice(dish)+' SEK </h5> </div> </div>';
 
 
 			$("#fullMenu").append(dishStr);
@@ -22,6 +22,5 @@ var ConfirmedView = function (container, model) {
 	this.update = function(object) {
 		this.loadMenu();
 	};
-this.loadMenu()
 	
 }

@@ -23,6 +23,7 @@ var SelectView = function (container, model) {
 			this.dishCont.append(dishStr);
 		}
 		this.imgCont = this.dishCont.find(".imgCont");
+		$(".loadingCont").hide();
 	}
 	this.update = function(obj){
 		this.loadDishes(obj);
@@ -30,4 +31,5 @@ var SelectView = function (container, model) {
 	}
 	//this.imgCont = container.find(".imgCont");
 	 model.getAllDishes(this, "Appetizers");
+	 $(".loadingCont").hide();
 }

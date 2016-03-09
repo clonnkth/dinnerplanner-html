@@ -33,7 +33,7 @@ var DinnerModel = function() {
 		
 			view.showStatus(data.statusText + data.responseText);
 		} else {
-			console.log(view)
+			
 			view.update(data)
 			//for(var i=0;i<this.observers.length; i++) {
 				//if (view === this.observers[i]) {
@@ -67,6 +67,7 @@ var DinnerModel = function() {
 		
 	}
 
+
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
 		//TODO Lab 2
@@ -92,6 +93,7 @@ var DinnerModel = function() {
 	this.getAllIngredients = function() {
 		//TODO Lab 2
 		var allIngredients = []
+		console.log(menu)
 
 		//var fullMenu = this.getFullMenu();
 		for(var i = 0; i < menu.length; i++) {
@@ -123,7 +125,6 @@ var DinnerModel = function() {
 	}
 
 	this.getTotalDishPrice = function(obj) {
-		console.log(obj)
 		ingredients = obj.Ingredients;
 		var totalDishPrice = 0.00;
 		for(var i = 0; i < ingredients.length ; i++){
@@ -133,22 +134,20 @@ var DinnerModel = function() {
 	}
 
 
-	this.addDishToMenu = function(view, obj, menu) {
+	this.addDishToMenu = function(view, obj) {
 		//console.log(obj);
-		console.log(menu)
 		menu.push(obj);
 		this.notifyObservers(view, menu);		
 	};
 
 	//Removes dish from menu
-	this.removeDishFromMenu = function(id, view) {
-		if(Recipe.RecipeID = id){
-			var index = menu.indexOf(Recipe)
-			if(index > -1) {
-				menu.splice(index, 1);
-			}
-			this.notifyObservers(view, menu);
-			}
+	this.removeDishFromMenu = function(view, id) {
+		for(var i = 0; i <menu.length ; i++){ 
+			if(menu[i].RecipeID === id){
+				menu.splice(i, 1);
+				this.notifyObservers(view, menu);
+				}
+		}
 	};
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -159,7 +158,6 @@ var DinnerModel = function() {
       var _this = this
         var url;
         url = 'http://api.bigoven.com/recipes?api_key='+this.apiKey+'&title_kw='+filter+'&any_kw='+type+'&pg=1&rpp=10';
-		console.log(url)
                   
         $.ajax({
             type: "GET",
@@ -197,7 +195,7 @@ var DinnerModel = function() {
         	url: url,
         	success: function (data) {
         		this.dish=data;
-        		console.log(data);
+        		
             	_this.notifyObservers(view, data);
             	
             }

@@ -7,7 +7,7 @@ var SelectViewController = function(view, view2, view3, model ) {
 
  	view.searchButton.click(function() {
  		//console.log(filter.value);
-		$("#loadingCont").show();
+		$(".loadingCont").show();
  		model.getAllDishes(view, type.value, filter.value );
  		//$(".loadingCont").hide();
  	});
@@ -18,12 +18,13 @@ var SelectViewController = function(view, view2, view3, model ) {
  		$("#selectView").hide();
  		$("#loadingCont").show();
  		$("#detailsView").show();
+ 		$(".loadingCont").show();
  		model.getDish(view2, $(this).data("id"));
 
  		//view2.changeCurrent($(this).data("id"));
  		console.log($(this).data("id"))
  		//console.log(model.dish)
- 		view3.setPending($(this).data("id"));
+ 		//view3.setPending();
 
  	});
 }
