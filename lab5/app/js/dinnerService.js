@@ -94,13 +94,13 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   }
 
 
-  this.addDishToMenu = function(view, obj) {
+  this.addDishToMenu = function(obj) {
     //console.log(obj);
     menu.push(obj);  
   };
 
   //Removes dish from menu
-  this.removeDishFromMenu = function(view, id) {
+  this.removeDishFromMenu = function(id) {
     for(var i = 0; i <menu.length ; i++){ 
       if(menu[i].RecipeID === id){
         menu.splice(i, 1);
