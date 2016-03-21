@@ -11,7 +11,8 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   this.dish = null;
   
   
-  this.apiKey = 'sV1fPGQKrO0b6oUYb6w9kLI8BORLiWox';
+  //this.apiKey = 'sV1fPGQKrO0b6oUYb6w9kLI8BORLiWox';
+  this.apiKey = 'F088t4s6QGI5T92W3Nwiju8jFU52J8SP';
 
 
   this.setNumberOfGuests = function(num) {
@@ -46,6 +47,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
     //for(var i = 0; i < menu.length; i++){
     //  fullMenu.push(this.getDish(menu[i]));   
     //}
+    console.log(menu)
     return menu;
   }
 
