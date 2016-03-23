@@ -10,7 +10,8 @@ var DinnerModel = function() {
 	this.dish = null;
 	
 	
-	this.apiKey = '18f3cT02U9f6yRl3OKDpP8NA537kxYKu';
+	//this.apiKey = '18f3cT02U9f6yRl3OKDpP8NA537kxYKu';
+	this.apiKey = 'F088t4s6QGI5T92W3Nwiju8jFU52J8SP';
 
 
 	/*this.notifyObservers = function(obj) {

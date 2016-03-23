@@ -3,20 +3,18 @@
 // dependency on any service you need. Angular will insure that the
 // service is created first time it is needed and then just reuse it
 // the next time.
-dinnerPlannerApp.factory('Dinner',function ($resource/*, $cookieStore*/) {
+dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
   
-  var numberOfGuest = 2;
-
-  /*$cookieStore.get('numberOfGuests');
-  if(typeof numberOfGuests== 'undefined'){
+ /* var numberOfGuest = $cookieStore.get('numberOfGuests');
+  if(typeof numberOfGuests == 'undefined'){
     numberOfGuests=1;
-    $cookieStore.put('numberOfGuests',numberOfGuests);
+    $cookieStore['numberOfGuests'];
     console.log(numberOfGuests);
-  }*/
+  };*/
 
   menu = [];
-  this.dishes = null;
-  this.dish = null;
+  /*this.dishes = null;
+  this.dish = null;*/
   
   
   //this.apiKey = 'sV1fPGQKrO0b6oUYb6w9kLI8BORLiWox';
@@ -24,12 +22,16 @@ dinnerPlannerApp.factory('Dinner',function ($resource/*, $cookieStore*/) {
 
 
   this.setNumberOfGuests = function(num) {
-    numberOfGuest = num;
-  }
+  	$cookieStore.put('numberOfGuests', num);
+
+    //numberOfGuest = num;
+  };
 
   this.getNumberOfGuests = function() {
-    return numberOfGuest;
-  }
+  	return $cookieStore.get('numberOfGuest');
+
+    //return numberOfGuest;
+  };
 
 
 
@@ -50,6 +52,16 @@ dinnerPlannerApp.factory('Dinner',function ($resource/*, $cookieStore*/) {
 
   //Returns all the dishes on the menu.
   this.getFullMenu = function() {
+
+  	menu = []
+  	 $cookieStore.get('appetizers');
+    }
+      $cookieStore.put('mainDish',obj.RecipeID);
+      
+    }
+    if(obj.Category==="Desserts"){
+      $cookieStore.put('desserts',obj.RecipeID);
+
     //TODO Lab 2
     //var fullMenu = [];
     //for(var i = 0; i < menu.length; i++){
@@ -59,7 +71,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource/*, $cookieStore*/) {
   }
 
   //Returns all ingredients for all the dishes on the menu.
-  this.getAllIngredients = function() {
+  /*this.getAllIngredients = function() {
     //TODO Lab 2
     var allIngredients = []
     //console.log(menu)
@@ -72,7 +84,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource/*, $cookieStore*/) {
       }
     }
     return allIngredients;
-  }
+  }*/
 
   /*this.getDishIngredients = function(obj) {
     //TODO Lab 2
@@ -103,17 +115,26 @@ dinnerPlannerApp.factory('Dinner',function ($resource/*, $cookieStore*/) {
   }
 
 
+  //this.addDishToMenu = function(obj) {
   this.addDishToMenu = function(obj) {
-    menu.push(obj);  
+    //console.log("Category ",this.getDish().Category);
+   		itemID = obj.RecipeID;
+      $cookieStore.put("itemID", obj.RecipeID);
+    
+
   };
 
   //Removes dish from menu
   this.removeDishFromMenu = function(id) {
+  	$cookieStore.remove(id)
+
+
+/*
     for(var i = 0; i <menu.length ; i++){ 
       if(menu[i].RecipeID === id){
         menu.splice(i, 1);
         }
-    }
+    }*/
   };
 
   //function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -125,6 +146,33 @@ dinnerPlannerApp.factory('Dinner',function ($resource/*, $cookieStore*/) {
 
 
 
+if(typeof numberOfGuests === 'undefined'){
+    $cookieStore.put["numberOfGuests"] = 1;
+}
+/*
+  if(typeof $cookies["guests"] === 'undefined'){
+    $cookies["guests"] = 1
+  }
+
+  
+  if(typeof $cookies["Appetizers"] === 'undefined'){
+    $cookies["Appetizers"] = null
+  } else {
+    this.loadDishToMenu($cookies["Appetizers"])
+  }
+
+  if(typeof $cookies["Main Dish"] === 'undefined'){
+    $cookies["Main Dish"] = null
+  } else {
+    this.loadDishToMenu($cookies["Main Dish"])
+
+  }
+
+  if(typeof $cookies["Desserts"] === 'undefined'){
+    $cookies["Desserts"] = null
+  } else {
+    this.loadDishToMenu($cookies["Desserts"])
+  }*/
 
   // Angular service needs to return an object that has all the
   // methods created in it. You can consider that this is instead
