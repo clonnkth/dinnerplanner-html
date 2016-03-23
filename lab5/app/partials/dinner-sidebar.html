@@ -1,5 +1,5 @@
 <div>
-	People: <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGuest(numberOfGuests)"/>
+	People: <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGuest(numberOfGuests)" />
 
 <!-- TODO in Lab 5: Display the items on the menu with cost for each -->
 
@@ -13,11 +13,13 @@ this with Total price of the menu -->
 	<table> 
 			<tr>
 			<th>Dish</th>
+			<th>Cost</th>
+			<th>Remove</th>
 			</tr>
 			<tr ng-repeat="item in menu">
 				<td>{{item.Title}}</td>
 				<td>{{getTotalDishPrice(item)}}</td>
-				<td><button ng-click=removeDishFromMenu(item.RecipeID)>x</button></td>
+				<td><button ng-click="removeDishFromMenu(item.RecipeID)">x</button></td>
 			</tr>
 		</table>
 

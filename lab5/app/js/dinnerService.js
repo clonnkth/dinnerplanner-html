@@ -6,7 +6,7 @@
 dinnerPlannerApp.factory('Dinner',function ($resource) {
   
   var numberOfGuest = 2;
-  var menu = [];
+  menu = [];
   this.dishes = null;
   this.dish = null;
   
@@ -47,7 +47,6 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
     //for(var i = 0; i < menu.length; i++){
     //  fullMenu.push(this.getDish(menu[i]));   
     //}
-    console.log(menu)
     return menu;
   }
 
@@ -55,7 +54,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   this.getAllIngredients = function() {
     //TODO Lab 2
     var allIngredients = []
-    console.log(menu)
+    //console.log(menu)
 
     //var fullMenu = this.getFullMenu();
     for(var i = 0; i < menu.length; i++) {
@@ -81,7 +80,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
     var totalMenuPrice = 0.00;
     for(var i = 0; i < allIngredients.length ; i++){
       //for (menu[i].ingredients)
-      totalMenuPrice +=  (allIngredients[i].Quantity * nrGuests);
+      totalMenuPrice +=  (allIngredients[i].Quantity * numberOfGuest);
     }
     return totalMenuPrice;
   }
@@ -90,14 +89,13 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
     ingredients = obj.Ingredients;
     var totalDishPrice = 0.00;
     for(var i = 0; i < ingredients.length ; i++){
-      totalDishPrice += (ingredients[i].Quantity * nrGuests);
+      totalDishPrice += (ingredients[i].Quantity * numberOfGuest);
     }
     return totalDishPrice;
   }
 
 
   this.addDishToMenu = function(obj) {
-    //console.log(obj);
     menu.push(obj);  
   };
 
