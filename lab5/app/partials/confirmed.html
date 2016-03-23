@@ -1,0 +1,11 @@
+
+	My Dinner: {{getNumberOfGuests()}} people 
+	<a href="#/search"><button>Go Back</button></a>
+
+	<div ng-repeat="item in menu">
+		<div><img ng-src="{{item.ImageURL}}" style="height: 400px; width:400px; margin: 10px;"/>{{item.Title}}</div>
+		<div>{{getTotalDishPrice(item)}}</div>
+	</div>
+
+	{{getTotalMenuPrice()}} 
+	<a ng-href="#/print"><button>Print Full Recipe</button></a>

@@ -1,0 +1,10 @@
+	My Dinner: {{getNumberOfGuests()}} people 
+	<a href="#/search"><button>Go Back</button></a>
+
+	<div ng-repeat="item in menu">
+	 	<img ng-src="{{item.ImageURL}}" style="height: 400px; width:400px; margin: 10px;"/>
+		{{item.Title}}
+		{{item.Description}}
+		Preperation:
+		{{item.Instructions}}
+	</div>
