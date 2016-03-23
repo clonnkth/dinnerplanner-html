@@ -8,11 +8,23 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
  /* var numberOfGuest = $cookieStore.get('numberOfGuests');
   if(typeof numberOfGuests == 'undefined'){
     numberOfGuests=1;
+
+
+
     $cookieStore['numberOfGuests'];
     console.log(numberOfGuests);
   };*/
 
-  menu = [];
+  //var menu = $cookieStore.get('menu');
+  if(typeof $cookieStore.get('menu') === 'undefined'){
+  $cookieStore.put('menu', []);
+  };
+
+  //var numberOfGuests = $cookieStore.get('numberOfGuests');
+  if(typeof $cookieStore.get('numberOfGuests') === 'undefined'){
+  $cookieStore.put('numberOfGuests', 1);
+  }
+
   /*this.dishes = null;
   this.dish = null;*/
   
@@ -28,7 +40,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
   };
 
   this.getNumberOfGuests = function() {
-  	return $cookieStore.get('numberOfGuest');
+  	return $cookieStore.get('numberOfGuests');
 
     //return numberOfGuest;
   };
@@ -52,28 +64,32 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
 
   //Returns all the dishes on the menu.
   this.getFullMenu = function() {
+    var fullMenu = [];
+    menu = $cookieStore.get('menu');
+    console.log(menu)
+    for(var i = 0; i < menu.length; i++){
+      this.Dish.get({id:menu[i]},function(data){
+       fullMenu.push(data);
+      });
+      //fullMenu.push(this.getDish(menu[i])); 
+    };
+    console.log(fullMenu)
+    return fullMenu;
+  };
 
-  	menu = []
-  	 $cookieStore.get('appetizers');
-    }
-      $cookieStore.put('mainDish',obj.RecipeID);
-      
-    }
-    if(obj.Category==="Desserts"){
-      $cookieStore.put('desserts',obj.RecipeID);
+  this.getDish = function(itemID) {
+    this.Dish.get({id:itemID},function(data){
+       return data;
+     });
+  };
 
-    //TODO Lab 2
-    //var fullMenu = [];
-    //for(var i = 0; i < menu.length; i++){
-    //  fullMenu.push(this.getDish(menu[i]));   
-    //}
-    return menu;
-  }
+
 
   //Returns all ingredients for all the dishes on the menu.
-  /*this.getAllIngredients = function() {
+  this.getAllIngredients = function() {
     //TODO Lab 2
     var allIngredients = []
+    menu = $cookieStore.get('menu');
     //console.log(menu)
 
     //var fullMenu = this.getFullMenu();
@@ -84,14 +100,14 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
       }
     }
     return allIngredients;
-  }*/
+  }
 
-  /*this.getDishIngredients = function(obj) {
+  this.getDishIngredients = function(obj) {
     //TODO Lab 2
     //var dish = this.getDish(id);
     //var ingredients = this.dish.Ingredients;
     return obj.Ingredients;
-  }*/
+  }
 
   //Returns the total price of the menu (all the ingredients multiplied by number of guests).
   this.getTotalMenuPrice = function() {
@@ -100,7 +116,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
     var totalMenuPrice = 0.00;
     for(var i = 0; i < allIngredients.length ; i++){
       //for (menu[i].ingredients)
-      totalMenuPrice +=  (allIngredients[i].Quantity * numberOfGuest);
+      totalMenuPrice +=  (allIngredients[i].Quantity * $cookieStore.get('numberOfGuests'));
     }
     return totalMenuPrice;
   }
@@ -109,7 +125,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
     ingredients = obj.Ingredients;
     var totalDishPrice = 0.00;
     for(var i = 0; i < ingredients.length ; i++){
-      totalDishPrice += (ingredients[i].Quantity * numberOfGuest);
+      totalDishPrice += (ingredients[i].Quantity * $cookieStore.get('numberOfGuests'));
     }
     return totalDishPrice;
   }
@@ -118,23 +134,38 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
   //this.addDishToMenu = function(obj) {
   this.addDishToMenu = function(obj) {
     //console.log("Category ",this.getDish().Category);
-   		itemID = obj.RecipeID;
-      $cookieStore.put("itemID", obj.RecipeID);
-    
+    menu = $cookieStore.get('menu');
+    var same = true;
+    for(var i = 0; i <menu.length ; i++){ 
+      console.log(menu[i])
+      console.log(obj.RecipeID)
+      if(menu[i] === obj.RecipeID){
+        same = false
+        console.log("Not added")
+        return
+      };
+    };
+    if (same) {
+      menu.push(obj.RecipeID)
+      console.log("added")
+      //$cookieStore.remove('menu');
+      $cookieStore.put('menu', menu);
+
+    };
 
   };
 
   //Removes dish from menu
   this.removeDishFromMenu = function(id) {
-  	$cookieStore.remove(id)
+  	/*$cookieStore.remove(id)*/
 
-
-/*
     for(var i = 0; i <menu.length ; i++){ 
-      if(menu[i].RecipeID === id){
-        menu.splice(i, 1);
+      if(menu[i] === id){
+        menu.splice(i, 1)
         }
-    }*/
+    }
+    //$cookieStore.remove('menu');
+    $cookieStore.put("menu", menu);
   };
 
   //function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -145,10 +176,6 @@ dinnerPlannerApp.factory('Dinner',function ($resource,$cookieStore) {
   this.Dish = $resource('http://api.bigoven.com/recipe/:id',{api_key:this.apiKey}); 
 
 
-
-if(typeof numberOfGuests === 'undefined'){
-    $cookieStore.put["numberOfGuests"] = 1;
-}
 /*
   if(typeof $cookies["guests"] === 'undefined'){
     $cookies["guests"] = 1
