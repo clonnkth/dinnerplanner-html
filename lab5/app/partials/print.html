@@ -1,10 +1,12 @@
-	My Dinner: {{getNumberOfGuests()}} people 
-	<a href="#/search"><button>Go Back</button></a>
-
-	<div ng-repeat="item in menu">
-	 	<img ng-src="{{item.ImageURL}}" style="height: 400px; width:400px; margin: 10px;"/>
-		{{item.Title}}
-		{{item.Description}}
-		Preperation:
-		{{item.Instructions}}
+<div id="dinner">
+	<h2 class="bold">My Dinner: {{getNumberOfGuests()}} people </h2>
+	<a href="#/search"><button id="backButton2">Go Back</button></a>
+	<div id="printMenu">
+		<div class="printMenu" ng-repeat="item in menu">
+		 	<img class="img" ng-src="{{item.ImageURL}}"/>
+			<div class="description2"><h2 class="dishNames2">{{item.Title}}</h2>
+			<h3>{{item.Description}}</h3></div>
+			<div class="description2"><h3 class="dishNames2">Preperation</h3><h3>{{item.Instructions}}</h3></div></div>
+		</div>
 	</div>
+</div>

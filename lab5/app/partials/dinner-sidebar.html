@@ -1,35 +1,39 @@
-<div>
-	People: <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGuest(numberOfGuests)"/>
 
-<!-- TODO in Lab 5: Display the items on the menu with cost for each -->
+	
+<!-- TODO in Lab 5: Display the items on the menu with cost for each 	Total number of guest: {{getNumberOfGuests()}} -->
 
 
 <!-- Displaying number of guests both in input box and here is redundant. It is here only for the example
 purpose so you can see how some information from the model can be retrieved. In Lab 5 you will replace 
 this with Total price of the menu -->
-
-	Total number of guest: {{getNumberOfGuests()}} 
-
-	<table> 
-			<tr>
-			<th>Dish</th>
-			<th>Cost</th>
-			<th>Remove</th>
-			</tr>
-			<tr ng-repeat="item in menu">
-				<td>{{item.Title}}</td>
-				<td>{{getTotalDishPrice(item)}}</td>
-				<td><button ng-click='removeDishFromMenu(item.RecipeID)'>x</button></td>
-			</tr>
-			<tr/>
-
-			<tr><a ng-href="#/confirmed"><button>Confirm Dinner</button></a></tr>
-			
-	</table>
-<div>
-	<span>Cost {{getTotalMenuPrice()}}</span>
-
-	
+<div class="priceView">
+	<div class="lower">
+		<div class="my_dinner">
+			<table> 
+				<tr>
+					<h3>My Dinner</h3>
+				</tr>
+				<tr>
+					<h4>People: <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGuest(numberOfGuests)"/><h4>
+				</tr>	
+				<tr>
+					<th>Dish</th>
+					<th>Cost</th>
+					<th>Remove</th>
+				</tr>
+				<tr ng-repeat="item in menu">
+					<td>{{item.Title}}</td>
+					<td>{{getTotalDishPrice(item)}}</td>
+					<td><button ng-click='removeDishFromMenu(item.RecipeID)'>x</button></td>
+				</tr>
+				<tr/>
+					
+			</table>
+			<div>
+				<span class= "line2">Cost {{getTotalMenuPrice()}}</span>
+				<div id="confirm_align"><a ng-href="#/confirmed"><button id="confirmButton">Confirm Dinner</button></a></div>	
+			</div>
+		</div>
 	</div>
 </div>
 

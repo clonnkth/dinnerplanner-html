@@ -3,26 +3,32 @@
 
 <!-- TODO in Lab 5: Display the dish information including image, Description, 
 Instructions, Ingredients and total cost. -->
-	<div>
-	 	<img ng-src="{{singleDish.ImageURL}}" style="height: 400px; width:400px; margin: 10px;"/>
-		{{singleDish.Title}}
-		{{singleDish.Description}}
-		<a href="#/search"><button>Go Back</button></a>
 
-		<table> 
-			<tr>
-				<th>Quantity</th>
-				<th>Unit</th>
-				<th>Ingredient</th>
-				<th>Cost</th>
-			</tr>
-			<tr ng-repeat="ingredient in singleDish.Ingredients">
-				<td>{{ingredient.Quantity * getNumberOfGuests()}}</td>
-				<td>{{ingredient.Unit}}</td>
-				<td>{{ingredient.Name}}</td>
-				<td>{{ingredient.Quantity * getNumberOfGuests()}}</td>
-			</tr>
-			<tr> <td><a ng-href="#/search"><button ng-click=addDishToMenu(singleDish)>Add Dish To Menu</button></a></td> </tr>
-		</table>
+	<div class="lower2">
+		<div class="recipe">
+			<div class="dishCont2">
+			<h3 class="dishName2">{{singleDish.Title}}</h3>
+		 	<div class="imgCont2"><img id="img2" ng-src="{{singleDish.ImageURL}}"/>
+			<div class="description2"><h5>{{singleDish.Description}}</h5> </div> </div>
+			<a href="#/search"><button id="backButton">Go Back</button></a>
+			<h2>Preparation</h2>
+			<div id="preparation">{{singleDish.Instructions}}</div>
+		</div>
+		<div class="ingrCont"> 
+			<h3>INGREDIENTS FOR {{getNumberOfGuests()}} PEOPLE</h3>
+			<table id="ingrTable"> 
+				<tr>
+					<th>Quantity Unit</th>
+					<th>Ingredient</th>
+					<th>Cost</th>
+				</tr>
+				<tr class="ingrRow" ng-repeat="ingredient in singleDish.Ingredients">
+					<h5><td><span class="qspan">{{ingredient.Quantity * getNumberOfGuests()}}</span> <span class="uspan"> {{ingredient.Unit}} </span></td>
+					<td class="nspan">{{ingredient.Name}}</td>
+					<td class="pspan">{{ingredient.Quantity * getNumberOfGuests()}}</td></h5>
+				</tr>
+				<tr> <td><a ng-href="#/search"><button id="confirmDish" ng-click=addDishToMenu(singleDish)>Add Dish To Menu</button></a></td> </tr>
+			</table>
+
 
 	</div>

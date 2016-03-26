@@ -1,0 +1,11 @@
+Todo:
+
+- Menyn försvinner när sidan laddas om (search, dish, confirmed och print) den kommer dock tillbaka när en rätt läggs till och är kvar när en rätt tas bort!
+
+- Bestämma hur confirmed ska se ut när det har lagts till fler än 4 rätter
+
+- Jag får inte dinner-sidebar att hamna brevid search och dish. 
+
+- Jag lyckas även inte få ingredients att hamna brevid details i dish.html
+
+- Rätterna byter ordning i menyn när något tas bort/läggs till

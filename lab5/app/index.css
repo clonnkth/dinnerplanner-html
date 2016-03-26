@@ -1,0 +1,423 @@
+*{
+    color: #000000;
+    font-family: Helvetica, sans-serif;
+}   
+
+html {
+    height: 100%;
+}
+
+h1
+{
+    font-size: 35pt;
+    font-weight: bold;
+    letter-spacing: 4px;
+    top: 10px;
+
+}
+
+h2 {
+
+    font-size: 20pt;
+    letter-spacing: 3px;
+}
+
+h3
+{
+    font-size: 14pt;
+    font-weight: normal;
+}
+
+h4 {
+    font-size: 10pt;
+}
+
+
+button{
+    background-color: rgb(245, 178, 113);
+    font-size: 14pt;
+    font-weight: normal;
+    border: 3px solid black;
+    display: inline;
+    position: center;
+}
+
+input {
+    border: 2px solid black; 
+    margin: 10px -5px 0px 0px; 
+    font-size: 22px; 
+    letter-spacing: 3px;
+    color: black;
+    width: 300px;
+    background-color: white;
+    padding-left: 15px;
+}
+
+body {
+    height:100%;
+    margin:0;
+    display:flex;
+    align-items:stretch;
+    flex-direction:column;
+}
+
+select {
+    width: 350px;
+    font-size: 20px;
+    letter-spacing: 3px;
+    background-color: white;
+    border: 2px solid black;
+    padding-left: 10px;
+}
+
+table { 
+    border-collapse: collapse; 
+    width: 100%;
+    height: auto;
+
+}
+
+
+td {
+    padding: 0px 20px 0px;
+ 
+ }
+
+th {
+    text-align: left;
+} 
+
+#thirdRow { 
+    background-color: #d3d3d3;
+    border: solid 2px;
+    line-height: 5px;
+ }
+
+.line {
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
+.line2 {
+    border-top: 2px solid black;
+    margin-top: 20px;
+    float: right;
+}
+
+.beside{
+    display: inline; 
+}
+
+.startView {
+    background-size: cover;
+    background-image:url("http://www.littleharvard.ie/wp-content/uploads/2015/11/dreamstime_m_12809494-family-cooking-together.gif");
+    flex:1;
+}
+
+.lorem {
+    font-family: Helvetica, sans-serif;
+    font-size: 12pt;
+    font-weight: normal;
+    display: block;
+    margin-bottom: 40px;
+    padding-top: 10px;
+    border-top: 2px solid black;
+    margin-top: 2px;
+}
+
+.my_dinner{
+    width:500px;
+    background-color: #ffffff;
+    border-width:0px 2px 2px 2px; 
+    border-style:solid; 
+    border-color:black;
+}
+
+.grey{
+    background-color: #d3d3d3;
+    border:2px solid #000000;
+    margin-left: -22px;
+    margin-right: -22px;
+    padding-left: 20px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.zero{
+    margin-left: 95px;
+}
+
+.cost{
+    margin-left: 75px;
+}
+
+.select_dish {
+    background-color: rgba( 255, 226, 130, 0.7);
+    display: block;
+    height: 125px;
+    padding: 10px 30px 30px;
+    border-bottom: 2px solid black;
+}
+
+#dinner {
+    background-color: rgba( 255, 226, 130, 0.7);
+    display: block;
+    height: 30px;
+    padding: 10px 30px 30px;
+    border-bottom: 2px solid black;
+}
+
+#myDinnerView {
+    display:none;
+}
+
+.lower {
+    display:inline;
+}
+.lower2 {
+    display:flex;
+    flex:1;
+}
+.search {
+    height: 35px;
+}
+
+.right {
+    float: right;
+}
+
+.dishCont {
+    height:300px;
+	width: 250px;
+    margin: 20px;
+	display:inline-block;
+}
+
+.imgCont{
+    border: 2px solid black;
+}
+
+.dishNames {
+    background-color: #d3d3d3;
+    border-top: 2px solid black;
+    margin-top: -4px;
+    margin-bottom: 0px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+}
+
+.dishNames2 {
+	margin-top: -4px;
+    margin-bottom: 0px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: left;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.bold {
+	font-weight: bold;
+	display: inline;
+}
+
+.description {
+    height: 98px;
+    overflow: hidden;
+}
+
+.description2 {
+    height: auto;
+	width:auto;
+	display:block;
+	flex: 0.5;
+	margin: 10px;
+
+}
+#selectView{
+    display:inline;
+    width: 600px;
+
+}
+
+#detailsView {
+    display:flex;
+    flex:1;
+}
+
+.btnCont {
+    display: block;
+    width: 20px;
+}
+
+.btn {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+}
+
+.guests {
+    display: inline;
+    width: 40px;
+    height:30px;
+}
+
+.dishbox{
+    flex:0.5;
+}
+
+.ingrCont{
+    flex:0.5;
+    height: auto;
+    background-color: rgba( 255, 226, 130, 0.5);
+    margin-top: 50px;
+    border: 2px solid black; 
+    padding-left: 20px;
+}
+
+.ingrRow {
+    height:40px;
+}
+
+
+
+.totalDishPrice{
+    display: inline;
+}
+
+.span {
+    flex:0.5;
+}
+
+.recipe {
+    flex: 0.65;
+    margin: 50px;
+}
+
+.price {
+	text-align: right;
+}
+
+.printbtn {
+	text-align:center;
+	border-top:2px solid black;
+	display: block;
+}
+
+
+.printMenu {
+	display:flex;
+	margin: 20px;
+}
+
+.img {
+    width: 200px;
+    height:200px;
+	border: 2px solid black;
+}
+
+.italic {
+	font-style: italic;
+}
+
+
+#title1 {
+    width: auto;
+    height: auto;
+    padding: 30px 20px 30px;
+    background-color: rgba( 255, 226, 130, 0.5);
+    border:3px solid #000000;
+    vertical-align: middle;
+}
+
+#title2 {
+    
+    width: auto;
+    height: auto;
+    padding: 30px 20px 30px;
+    background-color: #d3d3d3;
+    border:3px solid #000000;
+    vertical-align: middle;
+    position: relative;
+}
+
+#textbox {
+    width: 500px;
+    height: auto;
+    background-color: rgba( 255, 255, 255, 0.7);
+    text-align: left;
+    margin-top: 200px;
+    padding: 10px 10px 25px;
+}
+
+#confirm_align {
+    text-align:center;
+    padding-bottom: 30px;
+}
+
+#confirmButton {
+    margin-top: 50px; 
+}
+
+#confirmedView {
+}
+
+#dishCont {
+    display: inline-block;
+}
+
+#img {
+    width: 246px;
+    height:200px;
+}
+
+#img2 {
+    width: 500px;
+    height:400px;
+	border: 2px solid black;
+}  
+
+
+#confirmDish{
+    margin-top: 20px;
+    display: inline;
+}
+
+#fullMenu {
+	display: flex;
+	width: 60%;
+	margin:auto;
+    margin-top: 50px; 
+}
+
+#menu {
+	display: block;
+}
+
+#totalMenuPrice2 {
+	display: inline;
+	padding-top: 210px;
+	padding-left: 20px;
+	border-left:2px solid black;
+	margin-bottom: 50px;
+}
+
+#backButton2 {
+	float:right;
+	display:inline;
+ 	
+}
+ 
+#printbtn {
+	margin:40px;
+	padding: 5px 50px 5px;
+}
+
+#printMenu {
+    margin-top: 50px;
+}
+
+
+
+
