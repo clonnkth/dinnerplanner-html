@@ -2,7 +2,7 @@
 	<h2 class="bold">My Dinner: {{getNumberOfGuests()}} people </h2>
 	<a href="#/search"><button id="backButton2">Go Back</button></a>
 	<div id="printMenu">
-		<div class="printMenu" ng-repeat="item in menu">
+		<div class="printMenu" ng-repeat="item in menu()">
 		 	<img class="img" ng-src="{{item.ImageURL}}"/>
 			<div class="description2"><h2 class="dishNames2">{{item.Title}}</h2>
 			<h3>{{item.Description}}</h3></div>

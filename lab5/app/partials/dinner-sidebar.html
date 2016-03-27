@@ -21,7 +21,7 @@ this with Total price of the menu -->
 					<th>Cost</th>
 					<th>Remove</th>
 				</tr>
-				<tr ng-repeat="item in menu">
+				<tr ng-repeat="item in menu()">
 					<td>{{item.Title}}</td>
 					<td>{{getTotalDishPrice(item)}}</td>
 					<td><button ng-click='removeDishFromMenu(item.RecipeID)'>x</button></td>
